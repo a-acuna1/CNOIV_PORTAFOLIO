@@ -22,20 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 2500);
     }
 
-    const form = document.getElementById("socForm");
-    if(form) {
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const status = document.getElementById("form-status");
-            status.innerHTML = "<span style='color: #ffaa00;'>[ PROCESANDO PAQUETES... ]</span>";
-            
-            setTimeout(() => {
-                status.innerHTML = "<span style='color: #00A859;'>[ ÉXITO. RESPUESTA AUTOMÁTICA ENVIADA. ]</span>";
-                form.reset();
-            }, 1500);
-        });
-    }
-
     const ctx = document.getElementById('skillsRadar');
     if(ctx) {
         new Chart(ctx, {
