@@ -63,7 +63,7 @@
                 <div class="card fade-in span-2" style="animation-delay: 0.2s;">
                     <div class="card-title">1. INTRODUCCIÓN</div>
                     <div class="card-content">
-                        <p>Comprender las técnicas ofensivas es el primer paso para desarrollar buenas defensas[cite: 2]. En esta práctica, exploramos la anatomía de la captura de datos de entrada mediante la manipulación de event hooks en el sistema operativo[cite: 2]. Este reporte detalla el desarrollo de un script capaz de interceptar eventos de teclado, registrar su actividad con marcas temporales exactas y transmitir esta telemetría hacia un receptor remoto en ParrotOS[cite: 2].</p>
+                        <p>Comprender las técnicas ofensivas es el primer paso para desarrollar buenas defensas. En esta práctica, exploramos la anatomía de la captura de datos de entrada mediante la manipulación de event hooks en el sistema operativo. Este reporte detalla el desarrollo de un script capaz de interceptar eventos de teclado, registrar su actividad con marcas temporales exactas y transmitir esta telemetría hacia un receptor remoto en ParrotOS.</p>
                     </div>
                 </div>
 
@@ -72,10 +72,10 @@
                     <div class="card-title">2. DETALLES DE LA ACTIVIDAD</div>
                     <div class="card-content">
                         <ul class="skill-list" style="line-height: 1.8;">
-                            <li>> <strong>Requisitos técnicos:</strong> Persistencia, Asociación temporal, Envío de información[cite: 2].</li>
-                            <li>> <strong>Concepto principal:</strong> Manipulación de event hooks y callbacks[cite: 2].</li>
+                            <li>> <strong>Requisitos técnicos:</strong> Persistencia, Asociación temporal, Envío de información.</li>
+                            <li>> <strong>Concepto principal:</strong> Manipulación de event hooks y callbacks.</li>
                             <li>> <strong>Entorno emisor:</strong> Script local ejecutado en Windows.</li>
-                            <li>> <strong>Entorno receptor:</strong> Máquina virtual con ParrotOS (IP: 192.168.0.28, Puerto: 44444)[cite: 2].</li>
+                            <li>> <strong>Entorno receptor:</strong> Máquina virtual con ParrotOS (IP: 192.168.0.28, Puerto: 44444).</li>
                         </ul>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                             <!-- Fase 1 -->
                             <div>
                                 <p style="color: var(--text-light); font-weight: bold; margin-bottom: 5px;">A) Persistencia y Asociación</p>
-                                <p style="margin-bottom: 10px; font-size: 0.95rem;">El código crea un archivo local llamado <span style="color: var(--accent);">registro_local.log</span> en el escritorio usando el modo de apertura 'a' (append) para evitar la sobreescritura de datos[cite: 2]. Cada pulsación registrada es acompañada de una marca de tiempo generada por la función ts()[cite: 2].</p>
+                                <p style="margin-bottom: 10px; font-size: 0.95rem;">El código crea un archivo local llamado <span style="color: var(--accent);">registro_local.log</span> en el escritorio usando el modo de apertura 'a' (append) para evitar la sobreescritura de datos. Cada pulsación registrada es acompañada de una marca de tiempo generada por la función ts().</p>
                                 <pre style="background: #000; padding: 12px; border: 1px solid var(--border-color); color: var(--accent-glow); font-family: monospace; overflow-x: auto; font-size: 0.85rem;">def log(tipo, key):
     global n
     t = ts()
@@ -101,7 +101,7 @@
                             <!-- Fase 2 -->
                             <div>
                                 <p style="color: var(--text-light); font-weight: bold; margin-bottom: 5px;">B) Envío de Información</p>
-                                <p style="margin-bottom: 10px; font-size: 0.95rem;">Se configuró la transmisión de datos por red mediante la función send[cite: 2]. Se utiliza un bloque try-except junto con un socket UDP (AF_INET, SOCK_DGRAM) para asegurar que el programa no se interrumpa ante posibles errores de red[cite: 2].</p>
+                                <p style="margin-bottom: 10px; font-size: 0.95rem;">Se configuró la transmisión de datos por red mediante la función send. Se utiliza un bloque try-except junto con un socket UDP (AF_INET, SOCK_DGRAM) para asegurar que el programa no se interrumpa ante posibles errores de red.</p>
                                 <pre style="background: #000; padding: 12px; border: 1px solid var(--border-color); color: var(--accent-glow); font-family: monospace; overflow-x: auto; font-size: 0.85rem;">def send(data):
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -135,7 +135,7 @@
                         <!-- Conclusión Académica -->
                         <div style="border-top: 1px dashed var(--border-color); padding-top: 20px;">
                             <p style="color: var(--text-light); margin-bottom: 10px;"><strong>Conclusión:</strong></p>
-                            <p>Con el desarrollo de este script, logramos entender de forma práctica el funcionamiento de un keylogger, observando cómo se capturan los datos y son enviados a través de protocolos de red comunes[cite: 2]. Las vulnerabilidades no siempre residen en fallas de software complejas, sino también en el abuso de funciones nativas del sistema operativo[cite: 2]. Entender esto nos ayuda a preparar una mejor defensa y a ser conscientes de lo que un atacante puede lograr[cite: 2].</p>
+                            <p>Con el desarrollo de este script, logramos entender de forma práctica el funcionamiento de un keylogger, observando cómo se capturan los datos y son enviados a través de protocolos de red comunes. Las vulnerabilidades no siempre residen en fallas de software complejas, sino también en el abuso de funciones nativas del sistema operativo. Entender esto nos ayuda a preparar una mejor defensa y a ser conscientes de lo que un atacante puede lograr.</p>
                         </div>
 
                     </div>
