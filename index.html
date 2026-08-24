@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad Informática | Portafolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Incluir Chart.js para el gráfico de Radar -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar / Navegación -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-icon pulse"></span>
+                <h2>CNO IV PORTAFOLIO</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="active"><span class="nav-dot"></span>01. INICIO</a>
+                <a href="parcial1/index.html"><span class="nav-dot"></span>02. PARCIAL 1</a>
+                <a href="parcial2/index.html"><span class="nav-dot"></span>03. PARCIAL 2</a>
+                <a href="parcial3/index.html"><span class="nav-dot"></span>04. PARCIAL 3</a>
+            </nav>
+            <div class="system-status">
+                <p>STATUS: <span class="text-green blink">SECURE</span></p>
+                <p class="ssl-note"> </p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <h1 id="typewriter-title">PANEL DE CONTROL</h1>
+                <div class="user-info">
+                    <span>OP: sys_d3im05</span>
+                </div>
+            </header>
+
+            <div class="grid-container">
+                
+                <!-- 1. Encabezado -->
+                <div class="card fade-in span-1" style="animation-delay: 0.1s;">
+                    <div class="card-title">1. IDENTIDAD ACADÉMICA</div>
+                    <div class="card-content">
+                        <p><strong>Estudiante:</strong> Angel Aaron Acuña Quezada (181583)</p>
+                        <p><strong>Alias:</strong> D3im0s</p>
+                        <p><strong>Asignatura:</strong> CNO IV – Seguridad Informática</p>
+                        <p><strong>Institución:</strong> Universidad Politécnica de San Luis Potosí</p>
+                        <p><strong>Carrera:</strong> Ingeniería en Tecnologías de la Información (ITI)</p>
+                        <p><strong>Periodo:</strong> Otoño 2026</p>
+                    </div>
+                </div>
+
+                <!-- 2. Presentación-->
+                <div class="card fade-in span-1" style="animation-delay: 0.2s;">
+                    <div class="card-title">2. OBJETIVO </div>
+                    <div class="card-content">
+                        <p><strong>Proposito del Portafolio y su importancia</strong></p>
+                        <p>Este portafolio funciona como contenedor de las evidencias académicas para la clase de Seguridad Informática. Su propósito es documentar pruebas, actividades y el progreso técnico desarrollado durante el curso.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Perfil  -->
+                <div class="card profile-card fade-in span-2" style="animation-delay: 0.3s;">
+                    <div class="card-title">3. PERFIL DEL ESTUDIANTE</div>
+                    <div class="card-content profile-flex">
+                        <div class="logo-box">
+                            <p class="team-name" style="margin-bottom: 5px;">DEADLOCK GROUP</p>
+                            <!-- AQUI VA EL LOGO: Asegúrate de que sea 300x300 -->
+                            <img src="img/DeadLock.jpg" alt="DeadLock Group" class="team-logo">
+                            <p class="team-name">HACKMEX TACTICAL UNIT</p>
+                        </div>
+                        <div class="profile-text">
+                            <p>Ingeniería en Tecnologías de la Información (ITI).</p>
+                            <ul class="skill-list">
+                                <li>> Ciberseguridad & CTFs</li>
+                                <li>> Redes & Networking (CCNA)</li>
+                                <li>> Servidores e Infraestructura</li>
+                                <li>> Respuesta a Incidentes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Tech Info  -->
+                <div class="card fade-in span-1" style="animation-delay: 0.4s;">
+                    <div class="card-title">4. SPECS TÉCNICOS</div>
+                    <div class="card-content tech-grid">
+                        <div class="tech-item"><span class="label">Stack:</span> HTML5/CSS/JS</div>
+                        <div class="tech-item"><span class="label">Host:</span> GitHub Pages</div>
+                        <div class="tech-item"><span class="label">VCS:</span> Git</div>
+                        <div class="tech-item"><span class="label">Logs:</span> <span id="live-logs" class="text-green">OK</span></div>
+                    </div>
+                </div>
+
+
+                <!-- 5. Formulario  -->
+                <div class="card contact-card fade-in span-3" style="animation-delay: 0.5s;">
+                    <div class="card-title">5.CONTACTO</div>
+                    <div class="card-content">
+                        <form id="socForm" class="soc-form">
+                            <div class="form-row">
+                                <input type="text" placeholder="ID de Usuario (Nombre)" required>
+                                <input type="email" placeholder="Dirección de Red (Email)" required>
+                            </div>
+                            <textarea placeholder="Carga útil del mensaje..." rows="2" required></textarea>
+                            <button type="submit">ENVIAR</button>
+                        </form>
+                        <div id="form-status" style="margin-top: 10px; font-weight: bold;"></div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="animation-delay: 0.7s;">
+                <p> Donde ellos ven un muro, nosotros vemos una puerta trasera. | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
