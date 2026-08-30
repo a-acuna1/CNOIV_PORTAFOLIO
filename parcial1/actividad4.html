@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 04 | CNO IV</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-icon pulse">🛡️</span>
+                <h2>CNO IV PORTAFOLIO</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
+                <a href="index.html" class="active"><span class="nav-dot"></span>02. PARCIAL_1</a>
+                <a href="../parcial2/index.html"><span class="nav-dot"></span>03. PARCIAL_2</a>
+                <a href="../parcial3/index.html"><span class="nav-dot"></span>04. PARCIAL_3</a>
+            </nav>
+            <div class="system-status">
+                <p>STATUS: <span class="text-green blink">SECURE</span></p>
+                <a href="https://t.me/D3im0s" target="_blank" class="telegram-link">> SECURE_COMMS [TELEGRAM]</a>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <a href="index.html" class="back-btn">< VOLVER A ACTIVIDADES</a>
+                <div class="user-info">
+                    <span>OP: sys_d3im0s</span>
+                </div>
+            </header>
+
+            <div class="grid-container">
+                
+                <!-- 1. Encabezado Académico -->
+                <div class="card fade-in span-4" style="animation-delay: 0.1s;">
+                    <div class="card-title">> ACTIVIDAD_04: UNA PÁGINA DEMASIADO CONVINCENTE</div>
+                    <div class="card-content" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; padding: 15px 20px;">
+                        <div style="line-height: 1.6;">
+                            <p><strong>Estudiante:</strong> Angel Aaron Acuña Quezada (181583)</p>
+                            <p><strong>Catedrático:</strong> Mtro. Servando López Contreras[cite: 2]</p>
+                            <p><strong>Fecha de entrega:</strong> 30 de agosto del 2026[cite: 2]</p>
+                        </div>
+                        <div style="text-align: right; border-left: 1px solid var(--border-color); padding-left: 20px; display: flex; flex-direction: column; justify-content: center; align-items: flex-end;">
+                            <p style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">ESTADO: ENTREGADO</p>
+                            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 12px;">Tema: Captura de credenciales con SET[cite: 2]</p>
+                            
+                            <a href="../pdf/Actividad04.pdf" download="Actividad04.pdf" class="back-btn" style="font-size: 0.85rem; border: 1px solid var(--accent); padding: 5px 12px; background: rgba(0, 168, 89, 0.05);">
+                                [ ↓ ] DESCARGAR PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Introducción y Objetivo -->
+                <div class="card fade-in span-2" style="animation-delay: 0.2s;">
+                    <div class="card-title">1. INTRODUCCIÓN Y OBJETIVO</div>
+                    <div class="card-content">
+                        <p>Todo ataque inicia con una fase de reconocimiento, y si la red corporativa cuenta con un sistema de seguridad robusto, el eslabón más vulnerable es el factor humano[cite: 2]. A esta manipulación psicológica se le conoce como ingeniería social, utilizando señuelos basados en el sentido de urgencia, recompensas o miedo para comprometer la red interna[cite: 2].</p>
+                        <br>
+                        <p><strong>Objetivo:</strong> Implementar y analizar, en un entorno controlado, una simulación de ingeniería social mediante Social-Engineer Toolkit (SET), utilizando una página web ficticia para comprender el funcionamiento de una técnica de captura de información y reconocer elementos de phishing[cite: 2].</p>
+                    </div>
+                </div>
+
+                <!-- 3. Escenario y Laboratorio -->
+                <div class="card fade-in span-2" style="animation-delay: 0.3s;">
+                    <div class="card-title">2. ESCENARIO Y LABORATORIO</div>
+                    <div class="card-content">
+                        <p><strong>Escenario:</strong> El área de seguridad de Vortex Gaming recibió reportes sobre un mensaje de actualización de credenciales[cite: 2]. El enlace dirige a un portal con el logotipo de la empresa y el mensaje: "Su sesión ha expirado", el cual no pertenece a la organización[cite: 2].</p>
+                        <br>
+                        <p><strong>Laboratorio:</strong> Se utilizó VMware para virtualizar una máquina atacante con ParrotOS y la herramienta SET usando el módulo Credential Harvester Attack Method[cite: 2]. Mediante "Custom Import", se alojó un archivo HTML fraudulento para interceptar y almacenar en texto plano las credenciales de la víctima[cite: 2].</p>
+                    </div>
+                </div>
+
+                <!-- 4. Controles y Soluciones -->
+                <div class="card fade-in span-4" style="animation-delay: 0.4s;">
+                    <div class="card-title">3. INDICADORES DE PHISHING Y PROTECCIÓN</div>
+                    <div class="card-content">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                            <div>
+                                <p style="color: var(--text-light); font-weight: bold; margin-bottom: 5px;">A) Indicadores de Alerta[cite: 2]</p>
+                                <ul class="skill-list" style="font-size: 0.95rem; line-height: 1.6;">
+                                    <li>> <strong>URL discrepante:</strong> Uso de una dirección IP local en lugar del dominio oficial[cite: 2].</li>
+                                    <li>> <strong>Falta de cifrado SSL:</strong> Uso de HTTP generando advertencia de "sitio no seguro"[cite: 2].</li>
+                                    <li>> <strong>Canal anómalo:</strong> Expiración abrupta de sesión sin comunicado previo del departamento TI[cite: 2].</li>
+                                    <li>> <strong>Ausencia de validación:</strong> Aceptación de cadenas de texto sin comprobar la lógica del formato del correo[cite: 2].</li>
+                                    <li>> <strong>Sentido de urgencia:</strong> Manipulación que fuerza al usuario a actuar de inmediato[cite: 2].</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p style="color: var(--text-light); font-weight: bold; margin-bottom: 5px;">B) Soluciones Propuestas[cite: 2]</p>
+                                <ul class="skill-list" style="font-size: 0.95rem; line-height: 1.6;">
+                                    <li>> <strong>Autenticación Multifactor (MFA):</strong> Bloquea el acceso no autorizado aunque el atacante obtenga la contraseña[cite: 2].</li>
+                                    <li>> <strong>Gestor de contraseñas:</strong> Evita el autocompletado en URLs falsas al detectar discrepancias con el sitio legítimo[cite: 2].</li>
+                                    <li>> <strong>Filtro Anti-Spoofing:</strong> Reduce la llegada de correos fraudulentos[cite: 2].</li>
+                                    <li>> <strong>Filtro DNS:</strong> Bloquea resoluciones hacia dominios maliciosos o muy recientes[cite: 2].</li>
+                                    <li>> <strong>Capacitación continua:</strong> Mantiene al personal actualizado sobre nuevas tácticas[cite: 2].</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Evidencias y Conclusión -->
+                <div class="card fade-in span-4" style="animation-delay: 0.5s;">
+                    <div class="card-title">4. EVIDENCIAS Y CONCLUSIÓN</div>
+                    <div class="card-content">
+                        
+                        <!-- Contenedor de imágenes -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 25px;">
+                            <div>
+                                <p style="color: var(--accent); font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">> INTERFAZ DEL PORTAL FALSO[cite: 2]</p>
+                                <img src="../img/preview.jpg" alt="Portal Vortex" style="width: 100%; border: 1px solid var(--border-color); border-radius: 4px;">
+                            </div>
+                            <div>
+                                <p style="color: var(--accent); font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">> REGISTRO DE CREDENCIALES[cite: 2]</p>
+                                <img src="../img/2Captura.PNG" alt="SET Intercepción" style="width: 100%; border: 1px solid var(--border-color); border-radius: 4px;">
+                            </div>
+                        </div>
+
+                        <div style="border-top: 1px dashed var(--border-color); padding-top: 20px;">
+                            <p style="color: var(--text-light); margin-bottom: 10px;"><strong>Conclusión:</strong></p>
+                            <p>La actividad demostró lo peligroso que pueden ser los ataques de ingeniería social, comprobando que las defensas técnicas más robustas pueden ser eludidas si el usuario final es manipulado[cite: 2]. Se comprendió que el Credential Harvester explota la confianza visual, lo que resalta la necesidad de combinar controles técnicos como MFA con concientización humana constante para mitigar estos riesgos de manera integral[cite: 2].</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="animation-delay: 0.6s; margin-top: 20px;">
+                <p>Donde ellos ven un muro, nosotros vemos una puerta trasera. | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
