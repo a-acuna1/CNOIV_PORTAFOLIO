@@ -51,7 +51,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="brand">
-                <span class="logo-icon pulse">🛡️</span>
+                <span class="logo-icon pulse"></span>
                 <h2>CNO IV PORTAFOLIO</h2>
             </div>
             <nav class="nav-menu">
@@ -106,18 +106,19 @@
                     <div class="card-title">2. PROCEDIMIENTO Y EVIDENCIAS</div>
                     <div class="card-content">
                         <p class="report-text">Se ingresó a la tienda virtual del laboratorio, en la cual podemos ver que carga varias imágenes de productos.</p>
-                        <img src="../img/Captura1.jpg" alt="Tienda Virtual" class="report-img" onerror="this.src='../img/lab07.jpg'">
+                        <!-- Ruta actualizada a tu nueva carpeta 'capturas' -->
+                        <img src="capturas/Captura1.PNG" alt="Tienda Virtual" class="report-img">
 
                         <p class="report-text" style="margin-top: 20px;">Durante la fase de reconocimiento pasivo en Burp Suite, se identificó un patrón de diseño inseguro en las peticiones GET hacia el endpoint <code>/image</code>. La aplicación emplea el parámetro <code>filename</code> para la carga dinámica de recursos. Al no existir una abstracción, este parámetro se convierte en un vector ideal para inyectar secuencias de salto de directorio. Para un análisis más profundo usamos la función Proxy de Burp Suite.</p>
-                        <img src="../img/Captura2.PNG" alt="Site Map" class="report-img" onerror="this.src='../img/lab07.jpg'">
-                        <img src="../img/Captura3.jpg" alt="Proxy HTTP History" class="report-img" onerror="this.src='../img/lab07.jpg'">
-                        <img src="../img/Captura4.PNG" alt="Petición GET /image" class="report-img" onerror="this.src='../img/lab07.jpg'">
+                        <img src="capturas/Captura2.PNG" alt="Site Map" class="report-img">
+                        <img src="capturas/Captura3.PNG" alt="Proxy HTTP History" class="report-img">
+                        <img src="capturas/Captura4.PNG" alt="Petición GET /image" class="report-img">
 
                         <p class="report-text" style="margin-top: 20px;">Haciendo un análisis rápido podemos ver que el método GET directamente llama a las imágenes, así que intentaremos atacar a través de ellas. Para esto, enviamos la petición al "Repeater" y preparamos el payload eliminando el nombre de la imagen y colocando la ruta del archivo que deseamos ver: <code>../../../etc/passwd</code>.</p>
-                        <img src="../img/Captura5.PNG" alt="Payload en Repeater" class="report-img" onerror="this.src='../img/lab07.jpg'">
+                        <img src="capturas/Captura5.PNG" alt="Payload en Repeater" class="report-img">
 
                         <p class="report-text" style="margin-top: 20px;">Damos clic en "Send" y podemos observar que tuvimos éxito y tenemos acceso al archivo passwd.</p>
-                        <img src="../img/Captura6.jpg" alt="Respuesta 200 OK con /etc/passwd" class="report-img" onerror="this.src='../img/lab07.jpg'">
+                        <img src="capturas/Captura6.PNG" alt="Respuesta 200 OK con /etc/passwd" class="report-img">
                     </div>
                 </div>
 
