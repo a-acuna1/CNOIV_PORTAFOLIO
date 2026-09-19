@@ -23,7 +23,6 @@
             scrollbar-width: none;
         }
 
-       
         .roadmap-wrapper::-webkit-scrollbar { 
             display: none;
         }
@@ -103,14 +102,8 @@
             box-shadow: 0 0 20px var(--accent-glow);
         }
         
-        .roadmap-node:hover .node-label { 
-            color: var(--accent); 
-            font-weight: bold; 
-        }
-        
-        .roadmap-node:hover .click-hint { 
-            color: var(--accent); 
-        }
+        .roadmap-node:hover .node-label { color: var(--accent); font-weight: bold; }
+        .roadmap-node:hover .click-hint { color: var(--accent); }
 
         /* TARJETA EMERGENTE (TOOLTIP) */
         .roadmap-tooltip {
@@ -144,60 +137,15 @@
             border-color: var(--accent) transparent transparent transparent;
         }
 
-        .roadmap-node:hover .roadmap-tooltip {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
+        .roadmap-node:hover .roadmap-tooltip { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .roadmap-node:nth-child(even) .roadmap-tooltip { bottom: auto; top: 85px; transform: translateX(-50%) translateY(-20px); }
+        .roadmap-node:nth-child(even):hover .roadmap-tooltip { transform: translateX(-50%) translateY(0); }
+        .roadmap-node:nth-child(even) .roadmap-tooltip::after { bottom: auto; top: -10px; border-width: 0 10px 10px; border-color: transparent transparent var(--accent) transparent; }
 
-        .roadmap-node:nth-child(even) .roadmap-tooltip {
-            bottom: auto;
-            top: 85px;
-            transform: translateX(-50%) translateY(-20px);
-        }
-        
-        .roadmap-node:nth-child(even):hover .roadmap-tooltip {
-            transform: translateX(-50%) translateY(0);
-        }
-        
-        .roadmap-node:nth-child(even) .roadmap-tooltip::after {
-            bottom: auto;
-            top: -10px;
-            border-width: 0 10px 10px;
-            border-color: transparent transparent var(--accent) transparent;
-        }
-
-        .tooltip-tag { 
-            display: inline-block; 
-            background: var(--accent); 
-            color: #000; 
-            padding: 2px 8px; 
-            font-weight: bold; 
-            font-size: 0.75rem; 
-            border-radius: 2px; 
-            margin-bottom: 8px; 
-        }
-        
-        .tooltip-title { 
-            color: var(--text-light); 
-            font-size: 1.1rem; 
-            margin-bottom: 8px; 
-            line-height: 1.2; 
-        }
-        
-        .tooltip-desc { 
-            font-size: 0.85rem; 
-            opacity: 0.8; 
-            margin-bottom: 10px; 
-            line-height: 1.4; 
-        }
-        
-        .tooltip-img { 
-            width: 100%; 
-            height: auto; 
-            border: 1px dashed var(--accent); 
-            border-radius: 4px; 
-        }
+        .tooltip-tag { display: inline-block; background: var(--accent); color: #000; padding: 2px 8px; font-weight: bold; font-size: 0.75rem; border-radius: 2px; margin-bottom: 8px; }
+        .tooltip-title { color: var(--text-light); font-size: 1.1rem; margin-bottom: 8px; line-height: 1.2; }
+        .tooltip-desc { font-size: 0.85rem; opacity: 0.8; margin-bottom: 10px; line-height: 1.4; }
+        .tooltip-img { width: 100%; height: auto; border: 1px dashed var(--accent); border-radius: 4px; }
 
         @keyframes pulse-text {
             0% { opacity: 0.4; }
@@ -241,29 +189,41 @@
 
             <div class="grid-container" style="display: block;">
                 
+                <!-- PANEL DINÁMICO OCULTO POR DEFECTO -->
                 <div id="info-panel" class="card fade-in" style="margin-bottom: 30px; border-left: 3px solid #ffcc00; display: none;">
                     <div id="panel-title" class="card-title" style="color: #ffcc00; font-size: 1.5rem;">> REPORTE</div>
+                    
                     <div class="card-content" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-                        <p id="panel-desc" style="font-size: 1.1rem; max-width: 600px;">Cargando información del laboratorio...</p>
-                        <a id="download-btn" href="#" download="" class="back-btn" style="font-size: 0.9rem; border: 1px solid #ffcc00; padding: 10px 20px; background: rgba(255, 204, 0, 0.1); color: #ffcc00;">
-                            [ ↓ ] DESCARGAR REPORTE PDF
-                        </a>
+                        <p id="panel-desc" style="font-size: 1.1rem; max-width: 500px;">Cargando información del laboratorio...</p>
+                        
+                        <!-- CONTENEDOR DE BOTONES  -->
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <!-- Botón para ver la página web del reporte -->
+                            <a id="view-more-btn" href="#" class="back-btn" style="font-size: 0.9rem; border: 1px solid var(--accent); padding: 10px 20px; background: rgba(0, 168, 89, 0.1); color: var(--accent);">
+                                [ + ] VER REPORTE WEB
+                            </a>
+                            
+                            <!-- Botón para descargar el PDF -->
+                            <a id="download-btn" href="#" download="" class="back-btn" style="font-size: 0.9rem; border: 1px solid #ffcc00; padding: 10px 20px; background: rgba(255, 204, 0, 0.1); color: #ffcc00;">
+                                [ ↓ ] DESCARGAR PDF
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- TEXTO GUÍA PARPADEANTE -->
                 <div id="instruction-text" class="instruction-pulse">
-                    >> SELECCIONA UN NODO PARA VER LA INFORMACIÓN <<
+                    >> SELECCIONA UN NODO PARA DESENCRIPTAR LA INFORMACIÓN <<
                 </div>
 
                 <!-- CONTENEDOR DEL ROADMAP INTERACTIVO -->
                 <div class="roadmap-wrapper fade-in" style="animation-delay: 0.2s;">
                     <div class="roadmap-track">
                         
-                        <!-- NODO 01 (Lab 07)  -->
-                        <div class="roadmap-node" data-pdf="../pdf/Actividad07.pdf">
+                        <!-- NODO 01 (Lab 07) -->
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad07.pdf" data-link="lab07.html">
                             <div class="node-circle">07</div>
-                            <div class="node-label">FPT: Simple Case<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="node-label">FPT: Simple Case<br><span class="click-hint">[ Clic para interactuar ]</span></div>
                             <div class="roadmap-tooltip">
                                 <span class="tooltip-tag">Actividad 07</span>
                                 <h4 class="tooltip-title">File Path Traversal: Simple Case</h4>
@@ -272,10 +232,10 @@
                             </div>
                         </div>
 
-                        <!-- NODO 02 (Lab 08)  -->
-                        <div class="roadmap-node" data-pdf="../pdf/Actividad08.pdf">
+                        <!-- NODO 02 (Lab 08) -->
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad08.pdf" data-link="lab08.html">
                             <div class="node-circle">08</div>
-                            <div class="node-label">Absolute Path Bypass<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="node-label">Absolute Path Bypass<br><span class="click-hint">[ Clic para interactuar ]</span></div>
                             <div class="roadmap-tooltip">
                                 <span class="tooltip-tag">Actividad 08</span>
                                 <h4 class="tooltip-title">Absolute Path Bypass</h4>
@@ -284,10 +244,10 @@
                             </div>
                         </div>
 
-                        <!-- NODO 03 (Lab 09)  -->
-                        <div class="roadmap-node" data-pdf="../pdf/Actividad09.pdf">
+                        <!-- NODO 03 (Lab 09) -->
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad09.pdf" data-link="lab09.html">
                             <div class="node-circle">09</div>
-                            <div class="node-label">Non-Recursive Strip<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="node-label">Non-Recursive Strip<br><span class="click-hint">[ Clic para interactuar ]</span></div>
                             <div class="roadmap-tooltip">
                                 <span class="tooltip-tag">Actividad 09</span>
                                 <h4 class="tooltip-title">Sequences Stripped Non-Recursively</h4>
@@ -296,10 +256,10 @@
                             </div>
                         </div>
 
-                        <!-- NODO 04 (Lab 10)  -->
-                        <div class="roadmap-node" data-pdf="../pdf/Actividad10.pdf">
+                        <!-- NODO 04 (Lab 10) -->
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad10.pdf" data-link="lab10.html">
                             <div class="node-circle">10</div>
-                            <div class="node-label">Superfluous URL-Decode<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="node-label">Superfluous URL-Decode<br><span class="click-hint">[ Clic para interactuar ]</span></div>
                             <div class="roadmap-tooltip">
                                 <span class="tooltip-tag">Actividad 10</span>
                                 <h4 class="tooltip-title">Superfluous URL-Decode</h4>
@@ -308,10 +268,10 @@
                             </div>
                         </div>
 
-                        <!-- NODO 05 (Lab 11)  -->
-                        <div class="roadmap-node" data-pdf="../pdf/Actividad11.pdf">
+                        <!-- NODO 05 (Lab 11) -->
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad11.pdf" data-link="lab11.html">
                             <div class="node-circle">11</div>
-                            <div class="node-label">Validation of Start Path<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="node-label">Validation of Start Path<br><span class="click-hint">[ Clic para interactuar ]</span></div>
                             <div class="roadmap-tooltip">
                                 <span class="tooltip-tag">Actividad 11</span>
                                 <h4 class="tooltip-title">Validation of Start of Path</h4>
@@ -321,9 +281,9 @@
                         </div>
 
                         <!-- NODO 06 (Lab 12) -->
-                        <div class="roadmap-node" data-pdf="../pdf/Actividad12.pdf">
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad12.pdf" data-link="lab12.html">
                             <div class="node-circle">12</div>
-                            <div class="node-label">Null Byte Bypass<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="node-label">Null Byte Bypass<br><span class="click-hint">[ Clic para interactuar ]</span></div>
                             <div class="roadmap-tooltip">
                                 <span class="tooltip-tag">Actividad 12</span>
                                 <h4 class="tooltip-title">Null Byte Bypass</h4>
@@ -345,12 +305,14 @@
     
     <script src="../js/script.js"></script>
     
+    <!-- SCRIPT DE INTERACTIVIDAD DINÁMICA ACTUALIZADO -->
     <script>
         const panel = document.getElementById('info-panel');
         const instruction = document.getElementById('instruction-text');
         const panelTitle = document.getElementById('panel-title');
         const panelDesc = document.getElementById('panel-desc');
-        const downloadBtn = document.getElementById('download-btn'); // Obtenemos el botón de descarga
+        const downloadBtn = document.getElementById('download-btn');
+        const viewMoreBtn = document.getElementById('view-more-btn'); // Nuevo botón web
 
         // Manejar clics en los nodos
         document.querySelectorAll('.roadmap-node').forEach(node => {
@@ -361,18 +323,19 @@
                 const titleText = node.querySelector('.tooltip-title').innerText;
                 const descText = node.querySelector('.tooltip-desc').innerHTML;
                 
-                // 2. Extrae la ruta del PDF desde el atributo data-pdf que pusimos en el HTML
+                // 2. Extrae las rutas de los atributos data-pdf y data-link
                 const pdfPath = node.getAttribute('data-pdf');
+                const webPath = node.getAttribute('data-link');
                 
                 // 3. Actualiza los textos del panel superior
                 panelTitle.innerText = "> REPORTE: " + titleText.toUpperCase();
                 panelDesc.innerHTML = descText;
                 
-                // 4. Actualiza el botón de descarga con la ruta del PDF específico
+                // 4. Actualiza los botones con las rutas correctas
                 downloadBtn.href = pdfPath;
-                
-                // OPCIONAL: Esto hace que el archivo se guarde con el nombre original (ej: Actividad07.pdf)
                 downloadBtn.download = pdfPath.split('/').pop();
+                
+                viewMoreBtn.href = webPath; // Actualiza el enlace web
                 
                 // Muestra el panel y oculta las instrucciones
                 panel.style.display = 'block';
