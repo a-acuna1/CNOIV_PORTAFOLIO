@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road to Hall of Fame | CNO IV</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .roadmap-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            background: #0b0f14;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 180px 20px;
+            min-height: 65vh; 
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            position: relative;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+            scrollbar-width: none;
+        }
+
+       
+        .roadmap-wrapper::-webkit-scrollbar { 
+            display: none;
+        }
+
+        .roadmap-track {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center; 
+            position: relative;
+            width: 100%;
+            box-sizing: border-box; 
+            padding: 0 20px;
+        }
+
+        .roadmap-track::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            z-index: 1;
+            box-shadow: 0 0 8px var(--accent-glow);
+            transform: translateY(-50%);
+        }
+
+        .roadmap-node {
+            position: relative;
+            z-index: 2;
+            margin: 0 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .node-circle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #0b0f14;
+            border: 3px solid var(--accent);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-light);
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 0 10px rgba(0, 168, 89, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .node-label {
+            margin-top: 15px;
+            color: var(--text-light);
+            font-family: monospace;
+            font-size: 0.85rem;
+            text-align: center;
+            width: 140px;
+            white-space: normal;
+            transition: color 0.3s;
+        }
+
+        .click-hint {
+            display: block;
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 5px;
+            transition: color 0.3s;
+        }
+
+        .roadmap-node:hover .node-circle {
+            transform: scale(1.1);
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        
+        .roadmap-node:hover .node-label { 
+            color: var(--accent); 
+            font-weight: bold; 
+        }
+        
+        .roadmap-node:hover .click-hint { 
+            color: var(--accent); 
+        }
+
+        /* TARJETA EMERGENTE (TOOLTIP) */
+        .roadmap-tooltip {
+            position: absolute;
+            bottom: 85px; 
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            width: 320px;
+            background: rgba(11, 15, 20, 0.98);
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            padding: 15px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 168, 89, 0.2);
+            pointer-events: none;
+            text-align: left;
+            white-space: normal;
+            z-index: 10;
+        }
+
+        .roadmap-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: var(--accent) transparent transparent transparent;
+        }
+
+        .roadmap-node:hover .roadmap-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .roadmap-node:nth-child(even) .roadmap-tooltip {
+            bottom: auto;
+            top: 85px;
+            transform: translateX(-50%) translateY(-20px);
+        }
+        
+        .roadmap-node:nth-child(even):hover .roadmap-tooltip {
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        .roadmap-node:nth-child(even) .roadmap-tooltip::after {
+            bottom: auto;
+            top: -10px;
+            border-width: 0 10px 10px;
+            border-color: transparent transparent var(--accent) transparent;
+        }
+
+        .tooltip-tag { 
+            display: inline-block; 
+            background: var(--accent); 
+            color: #000; 
+            padding: 2px 8px; 
+            font-weight: bold; 
+            font-size: 0.75rem; 
+            border-radius: 2px; 
+            margin-bottom: 8px; 
+        }
+        
+        .tooltip-title { 
+            color: var(--text-light); 
+            font-size: 1.1rem; 
+            margin-bottom: 8px; 
+            line-height: 1.2; 
+        }
+        
+        .tooltip-desc { 
+            font-size: 0.85rem; 
+            opacity: 0.8; 
+            margin-bottom: 10px; 
+            line-height: 1.4; 
+        }
+        
+        .tooltip-img { 
+            width: 100%; 
+            height: auto; 
+            border: 1px dashed var(--accent); 
+            border-radius: 4px; 
+        }
+
+        @keyframes pulse-text {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; text-shadow: 0 0 8px var(--accent-glow); }
+            100% { opacity: 0.4; }
+        }
+        
+        .instruction-pulse {
+            text-align: center;
+            color: #ffcc00;
+            font-family: monospace;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            animation: pulse-text 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-icon pulse"></span>
+                <h2>CNO IV PORTAFOLIO</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
+                <a href="../parcial1/index.html"><span class="nav-dot"></span>02. PARCIAL 1</a>
+                <a href="../parcial2/index.html"><span class="nav-dot"></span>03. PARCIAL 2</a>
+                <a href="../parcial3/index.html"><span class="nav-dot"></span>04. PARCIAL 3</a>
+                <a href="index.html" class="active" style="color: #ffcc00; margin-top: 15px; border-top: 1px solid rgba(255,204,0,0.3); padding-top: 15px;"><span class="nav-dot"></span>🏆 ROAD TO HALL OF FAME</a>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <a href="../index.html" class="back-btn">< VOLVER AL INICIO</a>
+                <div class="user-info"><span>OP: sys_d3im0s</span></div>
+            </header>
+
+            <div class="grid-container" style="display: block;">
+                
+                <div id="info-panel" class="card fade-in" style="margin-bottom: 30px; border-left: 3px solid #ffcc00; display: none;">
+                    <div id="panel-title" class="card-title" style="color: #ffcc00; font-size: 1.5rem;">> REPORTE</div>
+                    <div class="card-content" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                        <p id="panel-desc" style="font-size: 1.1rem; max-width: 600px;">Cargando información del laboratorio...</p>
+                        <a id="download-btn" href="#" download="" class="back-btn" style="font-size: 0.9rem; border: 1px solid #ffcc00; padding: 10px 20px; background: rgba(255, 204, 0, 0.1); color: #ffcc00;">
+                            [ ↓ ] DESCARGAR REPORTE PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TEXTO GUÍA PARPADEANTE -->
+                <div id="instruction-text" class="instruction-pulse">
+                    >> SELECCIONA UN NODO PARA VER LA INFORMACIÓN <<
+                </div>
+
+                <!-- CONTENEDOR DEL ROADMAP INTERACTIVO -->
+                <div class="roadmap-wrapper fade-in" style="animation-delay: 0.2s;">
+                    <div class="roadmap-track">
+                        
+                        <!-- NODO 01 (Lab 07)  -->
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad07.pdf">
+                            <div class="node-circle">07</div>
+                            <div class="node-label">FPT: Simple Case<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="roadmap-tooltip">
+                                <span class="tooltip-tag">Actividad 07</span>
+                                <h4 class="tooltip-title">File Path Traversal: Simple Case</h4>
+                                <p class="tooltip-desc">Explotación básica navegando por los directorios del servidor mediante secuencias <code>../../../</code> para leer /etc/passwd.</p>
+                                <img src="../img/lab07.jpg" alt="Lab 07" class="tooltip-img">
+                            </div>
+                        </div>
+
+                        <!-- NODO 02 (Lab 08)  -->
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad08.pdf">
+                            <div class="node-circle">08</div>
+                            <div class="node-label">Absolute Path Bypass<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="roadmap-tooltip">
+                                <span class="tooltip-tag">Actividad 08</span>
+                                <h4 class="tooltip-title">Absolute Path Bypass</h4>
+                                <p class="tooltip-desc">Evasión de filtros que bloquean secuencias de salto ingresando directamente la ruta absoluta <code>/etc/passwd</code>.</p>
+                                <img src="../img/lab08.jpg" alt="Lab 08" class="tooltip-img">
+                            </div>
+                        </div>
+
+                        <!-- NODO 03 (Lab 09)  -->
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad09.pdf">
+                            <div class="node-circle">09</div>
+                            <div class="node-label">Non-Recursive Strip<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="roadmap-tooltip">
+                                <span class="tooltip-tag">Actividad 09</span>
+                                <h4 class="tooltip-title">Sequences Stripped Non-Recursively</h4>
+                                <p class="tooltip-desc">El servidor elimina "../" de forma no recursiva. Se anidan secuencias como <code>....//</code> para reconstruir la ruta maliciosa.</p>
+                                <img src="../img/lab09.jpg" alt="Lab 09" class="tooltip-img">
+                            </div>
+                        </div>
+
+                        <!-- NODO 04 (Lab 10)  -->
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad10.pdf">
+                            <div class="node-circle">10</div>
+                            <div class="node-label">Superfluous URL-Decode<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="roadmap-tooltip">
+                                <span class="tooltip-tag">Actividad 10</span>
+                                <h4 class="tooltip-title">Superfluous URL-Decode</h4>
+                                <p class="tooltip-desc">Bypass de filtros de seguridad aplicando "Double URL Encoding" a las barras diagonales (<code>%252e%252e%252f</code>).</p>
+                                <img src="../img/lab10.jpg" alt="Lab 10" class="tooltip-img">
+                            </div>
+                        </div>
+
+                        <!-- NODO 05 (Lab 11)  -->
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad11.pdf">
+                            <div class="node-circle">11</div>
+                            <div class="node-label">Validation of Start Path<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="roadmap-tooltip">
+                                <span class="tooltip-tag">Actividad 11</span>
+                                <h4 class="tooltip-title">Validation of Start of Path</h4>
+                                <p class="tooltip-desc">Se cumple la validación inicial del servidor agregando la ruta base exigida seguida de la secuencia: <code>/var/www/images/../../../etc/passwd</code>.</p>
+                                <img src="../img/lab11.jpg" alt="Lab 11" class="tooltip-img">
+                            </div>
+                        </div>
+
+                        <!-- NODO 06 (Lab 12) -->
+                        <div class="roadmap-node" data-pdf="../pdf/Actividad12.pdf">
+                            <div class="node-circle">12</div>
+                            <div class="node-label">Null Byte Bypass<br><span class="click-hint">[ Clic para cargar ]</span></div>
+                            <div class="roadmap-tooltip">
+                                <span class="tooltip-tag">Actividad 12</span>
+                                <h4 class="tooltip-title">Null Byte Bypass</h4>
+                                <p class="tooltip-desc">Uso de un byte nulo (%00) para engañar la validación de extensión del servidor: <code>../../../etc/passwd%00.png</code>.</p>
+                                <img src="../img/lab12.jpg" alt="Lab 12" class="tooltip-img">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="margin-top: 20px;">
+                <p> ROAD TO HALL OF FAME | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    
+    <script src="../js/script.js"></script>
+    
+    <script>
+        const panel = document.getElementById('info-panel');
+        const instruction = document.getElementById('instruction-text');
+        const panelTitle = document.getElementById('panel-title');
+        const panelDesc = document.getElementById('panel-desc');
+        const downloadBtn = document.getElementById('download-btn'); // Obtenemos el botón de descarga
+
+        // Manejar clics en los nodos
+        document.querySelectorAll('.roadmap-node').forEach(node => {
+            node.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                // 1. Extrae textos del tooltip
+                const titleText = node.querySelector('.tooltip-title').innerText;
+                const descText = node.querySelector('.tooltip-desc').innerHTML;
+                
+                // 2. Extrae la ruta del PDF desde el atributo data-pdf que pusimos en el HTML
+                const pdfPath = node.getAttribute('data-pdf');
+                
+                // 3. Actualiza los textos del panel superior
+                panelTitle.innerText = "> REPORTE: " + titleText.toUpperCase();
+                panelDesc.innerHTML = descText;
+                
+                // 4. Actualiza el botón de descarga con la ruta del PDF específico
+                downloadBtn.href = pdfPath;
+                
+                // OPCIONAL: Esto hace que el archivo se guarde con el nombre original (ej: Actividad07.pdf)
+                downloadBtn.download = pdfPath.split('/').pop();
+                
+                // Muestra el panel y oculta las instrucciones
+                panel.style.display = 'block';
+                instruction.style.display = 'none';
+                
+                panel.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!panel.contains(e.target)) {
+                panel.style.display = 'none';
+                instruction.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
