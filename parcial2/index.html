@@ -3,12 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CNO IV PORTAFOLIO | PARCIAL_2</title>
+    <title>Parcial 2 | CNO IV Portafolio</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .activity-card {
+            border: 1px solid rgba(0, 168, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+        .activity-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(0, 168, 89, 0.15);
+            transform: translateY(-5px);
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .status-pending { background: rgba(255, 204, 0, 0.2); color: #ffcc00; border: 1px solid #ffcc00; }
+        .status-active { background: rgba(0, 168, 89, 0.2); color: var(--accent); border: 1px solid var(--accent); }
+    </style>
 </head>
 <body>
     <div class="dashboard">
+        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="brand">
                 <span class="logo-icon pulse"></span>
@@ -16,35 +38,82 @@
             </div>
             <nav class="nav-menu">
                 <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
-                <a href="../parcial1/index.html" class=""><span class="nav-dot"></span>02. PARCIAL 1</a>
-                <a href="../parcial2/index.html" class="active"><span class="nav-dot"></span>03. PARCIAL 2</a>
-                <a href="../parcial3/index.html" class=""><span class="nav-dot"></span>04. PARCIAL 3</a>
+                <a href="../parcial1/index.html"><span class="nav-dot"></span>02. PARCIAL 1</a>
+                <!-- Parcial 2 está activo ahora -->
+                <a href="index.html" class="active"><span class="nav-dot"></span>03. PARCIAL 2</a>
+                <a href="../parcial3/index.html"><span class="nav-dot"></span>04. PARCIAL 3</a>
                 <a href="../halloffame/index.html" style="color: #ffcc00; margin-top: 15px; border-top: 1px solid rgba(255,204,0,0.3); padding-top: 15px;"><span class="nav-dot"></span>🏆 ROAD TO HALL OF FAME</a>
             </nav>
-            <div class="system-status">
-                <p>STATUS: <span class="text-green blink">SECURE</span></p>
-                <p class="ssl-note"></p>
-            </div>
         </aside>
 
+        <!-- Contenido Principal -->
         <main class="main-content">
             <header class="topbar">
-                <h1 id="typewriter-title">DIRECTORIO: PARCIAL 2</h1>
+                <h1 id="typewriter-title">>_ PARCIAL 2: MÓDULOS DE EXPLOTACIÓN</h1>
+                <div class="user-info"><span>OP: sys_d3im0s</span></div>
             </header>
 
-            <div class="grid-container" style="display: block;">
-                <div class="card fade-in" style="animation-delay: 0.1s;">
-                    <div class="card-title">REGISTROS DE EVALUACIÓN</div>
+            <div class="grid-container">
+                
+                <!-- Encabezado del Parcial -->
+                <div class="card fade-in span-3" style="border-left: 3px solid var(--accent);">
+                    <div class="card-title">> STATUS DEL SISTEMA: SEGUNDO PARCIAL EN CURSO</div>
                     <div class="card-content">
-                        <p>En este espacio se depositarán las evidencias, prácticas y documentación técnica correspondiente a las evaluaciones de este bloque.</p>
-                        <br>
-                        <p style="color: var(--accent);">> Esperando carga de archivos (.pdf, .md)...</p>
+                        <p style="font-size: 1.1rem; color: var(--text-light); opacity: 0.9;">
+                            Bienvenido al área clasificada del Segundo Parcial. En este módulo se documentarán las prácticas, laboratorios y evidencias técnicas asignadas por el Mtro. Servando López Contreras.
+                        </p>
                     </div>
                 </div>
+
+                <!-- Plantilla de Actividad 1 (Lista para rellenar) -->
+                <div class="card activity-card fade-in span-1" style="animation-delay: 0.1s;">
+                    <div class="card-title">ACTIVIDAD 15</div>
+                    <div class="card-content">
+                        <span class="status-badge status-active">EN PROGRESO</span>
+                        <h4 style="color: var(--text-light); margin-bottom: 10px;">[Nombre de la Actividad]</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; min-height: 45px;">
+                            Espacio reservado para la descripción técnica del primer reporte de este parcial.
+                        </p>
+                        <a href="#" class="back-btn" style="font-size: 0.8rem; text-align: center; display: block; padding: 8px;">
+                            [ CARGAR EVIDENCIA ]
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Plantilla de Actividad 2 -->
+                <div class="card activity-card fade-in span-1" style="animation-delay: 0.2s;">
+                    <div class="card-title">ACTIVIDAD 16</div>
+                    <div class="card-content">
+                        <span class="status-badge status-pending">PENDIENTE</span>
+                        <h4 style="color: var(--text-light); margin-bottom: 10px;">En espera de datos...</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; min-height: 45px;">
+                            Monitoreando asignaciones del servidor académico. No hay datos disponibles aún.
+                        </p>
+                        <a href="#" class="back-btn" style="font-size: 0.8rem; text-align: center; display: block; padding: 8px; opacity: 0.5; cursor: not-allowed; border-color: #555; color: #555;">
+                            [ SIN CONEXIÓN ]
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Plantilla de Actividad 3 -->
+                <div class="card activity-card fade-in span-1" style="animation-delay: 0.3s;">
+                    <div class="card-title">ACTIVIDAD 17</div>
+                    <div class="card-content">
+                        <span class="status-badge status-pending">PENDIENTE</span>
+                        <h4 style="color: var(--text-light); margin-bottom: 10px;">En espera de datos...</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; min-height: 45px;">
+                            Monitoreando asignaciones del servidor académico. No hay datos disponibles aún.
+                        </p>
+                        <a href="#" class="back-btn" style="font-size: 0.8rem; text-align: center; display: block; padding: 8px; opacity: 0.5; cursor: not-allowed; border-color: #555; color: #555;">
+                            [ SIN CONEXIÓN ]
+                        </a>
+                    </div>
+                </div>
+
             </div>
             
-            <footer class="soc-footer fade-in" style="animation-delay: 0.3s;" style="margin-top:auto;">
-                <p> PARCIAL 2 | © 2026 Angel Acuña | CNO IV</p>
+            <footer class="soc-footer fade-in" style="margin-top: 20px;">
+                <p> REGISTRO DE EVIDENCIAS | © 2026 Angel Acuña | CNO IV</p>
             </footer>
         </main>
     </div>
