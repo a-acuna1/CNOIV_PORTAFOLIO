@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 14 | CNO IV</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .report-section { margin-bottom: 30px; }
+        .report-text { font-size: 1.05rem; line-height: 1.6; color: var(--text-light); opacity: 0.9; }
+        .report-text strong { color: var(--accent); }
+        .report-list { margin-left: 20px; margin-bottom: 15px; }
+        .report-list li { margin-bottom: 10px; font-size: 1.05rem; line-height: 1.5; }
+        .infographic-container {
+            width: 100%;
+            height: 600px;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            margin-top: 20px;
+            background-color: #1a222c;
+        }
+        .cia-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .cia-card {
+            background: rgba(0, 168, 89, 0.05);
+            border: 1px solid rgba(0, 168, 89, 0.3);
+            padding: 15px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-icon pulse"></span>
+                <h2>CNO IV PORTAFOLIO</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
+                <a href="index.html" class="active"><span class="nav-dot"></span>02. PARCIAL 1</a>
+                <a href="../parcial2/index.html"><span class="nav-dot"></span>03. PARCIAL 2</a>
+                <a href="../parcial3/index.html"><span class="nav-dot"></span>04. PARCIAL 3</a>
+                <a href="../halloffame/index.html" style="color: #ffcc00; margin-top: 15px; border-top: 1px solid rgba(255,204,0,0.3); padding-top: 15px;"><span class="nav-dot"></span>🏆 ROAD TO HALL OF FAME</a>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <a href="index.html" class="back-btn">< VOLVER AL PARCIAL 1</a>
+                <div class="user-info"><span>OP: sys_d3im0s</span></div>
+            </header>
+
+            <div class="grid-container" style="display: block;">
+                
+                <!-- Encabezado de la Actividad -->
+                <div class="card fade-in report-section" style="border-left: 3px solid var(--accent);">
+                    <div class="card-title" style="font-size: 1.5rem;">> ACTIVIDAD 14: CIBERSEGURIDAD EN UNA MIRADA</div>
+                    <div class="card-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <ul class="report-list" style="list-style-type: none; margin-left: 0;">
+                                <li><strong>Módulo Seleccionado:</strong> Módulo 1: Introducción a la ciberseguridad.</li>
+                                <li><strong>Objetivo:</strong> Diseñar una infografía profesional que explique de manera visual, sintética y estratégica uno de los temas del curso, demostrando comprensión técnica y capacidad de síntesis orientada a la concientización organizacional.</li>
+                            </ul>
+                        </div>
+                        <a href="../pdf/Ciberseguridad_en_una_mirada.pdf" download="Ciberseguridad_en_una_mirada.pdf" class="back-btn" style="font-size: 0.9rem; border: 1px solid #ffcc00; padding: 10px 20px; background: rgba(255, 204, 0, 0.1); color: #ffcc00;">
+                            [ ↓ ] DESCARGAR INFOGRAFÍA PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Desglose de la Infografía -->
+                <div class="card fade-in report-section" style="animation-delay: 0.1s;">
+                    <div class="card-title">1. DESGLOSE ESTRATÉGICO DE LA INFORMACIÓN</div>
+                    <div class="card-content">
+                        <p class="report-text"><strong>¿Qué es la ciberseguridad?</strong><br>Es el esfuerzo continuo por proteger los sistemas conectados en red y los datos contra el acceso no autorizado, el uso indebido o el daño. Se aplica en tres niveles: personal, organizacional y gubernamental.</p>
+                        
+                        <p class="report-text" style="margin-top: 15px;"><strong>¿Por qué es relevante?</strong><br>Todo lo que hacemos en línea deja datos: identidad digital, historial médico, información financiera. Las organizaciones además resguardan datos de clientes y propiedad intelectual. Una brecha significa pérdidas económicas, daño reputacional y sanciones legales.</p>
+
+                        <div class="cia-grid">
+                            <div class="cia-card">
+                                <h4 style="color: var(--accent); margin-bottom: 10px;">🛡️ Confidencialidad</h4>
+                                <p class="report-text" style="font-size: 0.9rem;">Solo acceden las personas autorizadas.</p>
+                            </div>
+                            <div class="cia-card">
+                                <h4 style="color: var(--accent); margin-bottom: 10px;">✔️ Integridad</h4>
+                                <p class="report-text" style="font-size: 0.9rem;">La información no se altera sin permiso.</p>
+                            </div>
+                            <div class="cia-card">
+                                <h4 style="color: var(--accent); margin-bottom: 10px;">⚙️ Disponibilidad</h4>
+                                <p class="report-text" style="font-size: 0.9rem;">Los datos están accesibles cuando se necesitan. Si falla uno de los tres pilares, la seguridad se rompe.</p>
+                            </div>
+                        </div>
+
+                        <p class="report-text" style="margin-top: 20px;"><strong>¿Qué riesgos existen?</strong><br>Los atacantes van desde aficionados que usan herramientas ya hechas, pasando por hackers de sombrero negro y hacktivistas, hasta el crimen organizado y grupos patrocinados por Estados. Buscan robar datos, extorsionar o interrumpir servicios, y en el caso extremo desatan la ciberguerra.</p>
+
+                        <p class="report-text" style="margin-top: 15px;"><strong>¿Cómo se mitiga?</strong><br>Con contraseñas robustas y autenticación multifactor, actualizaciones constantes, respaldos periódicos, políticas de seguridad claras y, sobre todo, capacitación del personal, porque el eslabón más débil suele ser el humano.</p>
+                    </div>
+                </div>
+
+                <!-- Visualizador del PDF -->
+                <div class="card fade-in report-section" style="animation-delay: 0.2s;">
+                    <div class="card-title">2. EVIDENCIA VISUAL (INFOGRAFÍA)</div>
+                    <div class="card-content">
+                        <p class="report-text">A continuación se presenta la síntesis gráfica diseñada para concientización organizacional, basada en los lineamientos de Cisco Networking Academy y el framework de la NIST.</p>
+                        <!-- El iframe carga tu PDF directamente en la página web -->
+                        <iframe src="../pdf/Ciberseguridad_en_una_mirada.pdf" class="infographic-container" title="Infografía de Ciberseguridad"></iframe>
+                    </div>
+                </div>
+
+                <!-- Referencias -->
+                <div class="card fade-in report-section" style="animation-delay: 0.3s; border-left: 3px solid #ffcc00;">
+                    <div class="card-title" style="color: #ffcc00;">3. REFERENCIAS APA 7</div>
+                    <div class="card-content">
+                        <p class="report-text">Cisco Networking Academy. (s.f.). <em>Introducción a la ciberseguridad</em> [Curso en línea]. Recuperado de <a href="https://www.netacad.com/courses/introduction-to-cybersecurity" target="_blank" style="color: var(--accent);">https://www.netacad.com/courses/introduction-to-cybersecurity</a></p>
+                        <p class="report-text" style="margin-top: 10px;">National Institute of Standards and Technology. (2024). <em>The NIST Cybersecurity Framework (CSF) 2.0</em> (NIST CSWP 29). <a href="https://doi.org/10.6028/NIST.CSWP.29" target="_blank" style="color: var(--accent);">https://doi.org/10.6028/NIST.CSWP.29</a></p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="margin-top: 20px;">
+                <p> PRODUCTO DE CONCIENTIZACIÓN | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
