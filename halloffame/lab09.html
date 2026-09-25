@@ -77,7 +77,7 @@
                     <div class="card-title">2. PROCEDIMIENTO Y EVIDENCIAS</div>
                     <div class="card-content">
                         <p class="report-text">Se ingresó a la tienda virtual del laboratorio, en la cual podemos ver que carga varias imágenes de productos.</p>
-                        <img src="capturas/Captura1_2.jpg" alt="Tienda Virtual" class="report-img">
+                        <img src="capturas/lab9captura1.PNG" alt="Tienda Virtual" class="report-img">
 
                         <p class="report-text" style="margin-top: 20px;">Durante la fase de reconocimiento en Burp Suite, se identificó un patrón inseguro en las peticiones GET hacia <code>/image</code>. La aplicación emplea el parámetro <code>filename</code> para la carga de recursos. Este parámetro se convierte en un vector ideal para inyectar salto de directorio.</p>
                         <p class="report-text">Para poder visualizar estas peticiones en el HTTP history, fue necesario ajustar el filtro y habilitar la casilla 'Images' dentro de 'Filter by MIME type', ya que por defecto estaba desmarcada y ocultaba las peticiones hacia recursos de tipo imagen, incluyendo las que utilizan el parámetro filename.</p>
