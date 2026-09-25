@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Lab 09 | CNO IV</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .report-section { margin-bottom: 30px; }
+        .report-text { font-size: 1.05rem; line-height: 1.6; color: var(--text-light); opacity: 0.9; }
+        .report-text strong { color: var(--accent); }
+        .report-img { width: 100%; max-width: 900px; border: 1px solid var(--accent); border-radius: 4px; margin: 15px 0; box-shadow: 0 0 15px rgba(0, 168, 89, 0.1); }
+        .report-list { margin-left: 20px; margin-bottom: 15px; }
+        .report-list li { margin-bottom: 10px; font-size: 1.05rem; line-height: 1.5; }
+        code { background-color: #1a222c; color: #ffcc00; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-icon pulse"></span>
+                <h2>CNO IV PORTAFOLIO</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
+                <a href="../parcial1/index.html"><span class="nav-dot"></span>02. PARCIAL 1</a>
+                <a href="../parcial2/index.html"><span class="nav-dot"></span>03. PARCIAL 2</a>
+                <a href="../parcial3/index.html"><span class="nav-dot"></span>04. PARCIAL 3</a>
+                <a href="index.html" class="active" style="color: #ffcc00; margin-top: 15px; border-top: 1px solid rgba(255,204,0,0.3); padding-top: 15px;"><span class="nav-dot"></span>🏆 ROAD TO HALL OF FAME</a>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <a href="index.html" class="back-btn">< VOLVER AL ROADMAP</a>
+                <div class="user-info"><span>OP: sys_d3im0s</span></div>
+            </header>
+
+            <div class="grid-container" style="display: block;">
+                
+                <!-- Encabezado del Reporte -->
+                <div class="card fade-in report-section" style="border-left: 3px solid var(--accent);">
+                    <div class="card-title" style="font-size: 1.5rem;">> ACTIVIDAD 09: TRAVERSAL SEQUENCES STRIPPED NON-RECURSIVELY</div>
+                    <div class="card-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <ul class="report-list" style="list-style-type: none; margin-left: 0;">
+                                <li><strong>Nivel:</strong> Practitioner</li>
+                                <li><strong>Tipo de Explotación:</strong> File Path Traversal</li>
+                                <li><strong>Objetivo:</strong> Explorar la vulnerabilidad de File Path Traversal a través del método de petición "GET" del protocolo HTTP, con el fin de poder leer el archivo <code>/etc/passwd</code>.</li>
+                            </ul>
+                        </div>
+                        <!-- Se enlazó el PDF con el nombre exacto que tienes guardado -->
+                        <a href="../pdf/Activiad09.pdf" download="Actividad09.pdf" class="back-btn" style="font-size: 0.9rem; border: 1px solid #ffcc00; padding: 10px 20px; background: rgba(255, 204, 0, 0.1); color: #ffcc00;">
+                            [ ↓ ] DESCARGAR ESTE REPORTE EN PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Marco Teórico -->
+                <div class="card fade-in report-section" style="animation-delay: 0.1s;">
+                    <div class="card-title">1. MARCO TEÓRICO Y FUNDAMENTACIÓN TÉCNICA</div>
+                    <div class="card-content">
+                        <ul class="report-list">
+                            <li><strong>Concepto:</strong> De acuerdo con OWASP, un ataque de Path Traversal (también conocido como Directory Traversal) tiene como objetivo acceder a archivos y directorios que están almacenados fuera de la carpeta raíz web. Al manipular las variables que hacen referencia a los archivos usando secuencias de "punto-punto-barra" (<code>../</code>) o rutas absolutas permite a un atacante acceder a archivos y directorios en el sistema de archivos. En el caso particular de este laboratorio, la aplicación elimina las secuencias de traversal (<code>../</code>) de la entrada del usuario, pero lo hace de forma no recursiva (es decir, en una sola pasada). Esto permite evadir el filtro colocando secuencias anidadas como <code>....//</code>, ya que al quitarle una sola vez el patrón <code>../</code> del centro, lo que queda es exactamente <code>../</code>, reconstruyendo la secuencia de traversal después del filtrado.</li>
+                            <li><strong>Impacto en la Tríada CIA:</strong> Esta vulnerabilidad compromete de manera directa la <strong>Confidencialidad</strong> de la información, ya que expone datos sensibles del sistema operativo.</li>
+                            <li><strong>Perspectiva OWASP:</strong> Clasificada dentro de la categoría de Broken Access Control (Control de Acceso Roto), ocurre cuando la aplicación utiliza la entrada del usuario para construir una ruta de archivo sin validar o sanear adecuadamente dicha entrada, permitiendo escapar de la estructura de directorios autorizada.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Procedimiento y Evidencias -->
+                <div class="card fade-in report-section" style="animation-delay: 0.2s;">
+                    <div class="card-title">2. PROCEDIMIENTO Y EVIDENCIAS</div>
+                    <div class="card-content">
+                        <p class="report-text">Se ingresó a la tienda virtual del laboratorio, en la cual podemos ver que carga varias imágenes de productos.</p>
+                        <img src="capturas/Captura1_2.jpg" alt="Tienda Virtual" class="report-img">
+
+                        <p class="report-text" style="margin-top: 20px;">Durante la fase de reconocimiento en Burp Suite, se identificó un patrón inseguro en las peticiones GET hacia <code>/image</code>. La aplicación emplea el parámetro <code>filename</code> para la carga de recursos. Este parámetro se convierte en un vector ideal para inyectar salto de directorio.</p>
+                        <p class="report-text">Para poder visualizar estas peticiones en el HTTP history, fue necesario ajustar el filtro y habilitar la casilla 'Images' dentro de 'Filter by MIME type', ya que por defecto estaba desmarcada y ocultaba las peticiones hacia recursos de tipo imagen, incluyendo las que utilizan el parámetro filename.</p>
+                        <img src="capturas/lab9captura2.PNG" alt="Site Map" class="report-img">
+                        <img src="capturas/lab9captura3.PNG" alt="Proxy HTTP History Filter" class="report-img">
+
+                        <p class="report-text" style="margin-top: 20px;">Haciendo un análisis rápido podemos ver que el método GET directamente llama a las imágenes, así que intentaremos atacar a través de ellas. Para esto, enviamos la petición al 'Repeater' y preparamos el payload utilizando secuencias de traversal anidadas: <code>....//....//....//etc/passwd</code>. A diferencia del caso anterior, aquí la aplicación sí elimina las secuencias <code>../</code> de la entrada, pero lo hace de forma no recursiva; al quitar el patrón central de cada bloque <code>....//</code>, los caracteres restantes se recombinan formando nuevamente <code>../</code>, reconstruyendo así el traversal después del filtrado.</p>
+                        <img src="capturas/lab9captura4.PNG" alt="Payload con secuencias anidadas en Repeater" class="report-img">
+
+                        <p class="report-text" style="margin-top: 20px;">Damos clic en "Send" y podemos observar que tuvimos éxito y tenemos acceso al archivo passwd.</p>
+                        <img src="capturas/lab9captura5.PNG" alt="Respuesta 200 OK" class="report-img">
+                    </div>
+                </div>
+
+                <!-- Análisis Técnico -->
+                <div class="card fade-in report-section" style="animation-delay: 0.3s;">
+                    <div class="card-title">3. EXPLICACIÓN DEL PAYLOAD</div>
+                    <div class="card-content">
+                        <p class="report-text">El parámetro <code>filename</code> indica al servidor qué archivo leer del disco duro. En este laboratorio, la aplicación intenta defenderse eliminando las secuencias de traversal (<code>../</code>) que detecta en la entrada del usuario, pero realiza esta operación de forma no recursiva, es decir, la ejecuta una sola vez sobre la cadena completa sin volver a revisarla después de aplicar el filtro.</p>
+                        <p class="report-text">Esto permite construir un payload con secuencias anidadas: <code>....//....//....//etc/passwd</code>. Al eliminar el patrón <code>../</code> que se encuentra intercalado en cada bloque <code>....//</code>, los caracteres que quedan a los lados se recombinan y forman nuevamente la secuencia <code>../</code>, reconstruyendo así el path traversal que en principio había sido bloqueado. Como el servidor no vuelve a analizar la cadena resultante tras el filtrado, el ascenso de directorios se completa sin problema, permitiendo salir de la carpeta raíz web y llegar hasta <code>/etc/passwd</code>.</p>
+                    </div>
+                </div>
+
+                <!-- Mitigación -->
+                <div class="card fade-in report-section" style="animation-delay: 0.4s;">
+                    <div class="card-title">4. MITIGACIÓN RECOMENDADA</div>
+                    <div class="card-content">
+                        <ul class="report-list">
+                            <li><strong>Evitar entradas directas:</strong> Lo más efectivo es evitar, lo más que se pueda, pasar la entrada directa al sistema de archivos. En su lugar, se podrían usar identificadores en una base de datos para localizar un archivo.</li>
+                            <li><strong>Sanitización iterativa:</strong> El error ocurre porque el filtro elimina las secuencias <code>../</code> una sola vez, sin verificar si al hacerlo se formó una nueva secuencia peligrosa. Por eso, la corrección correcta es que el filtro se aplique de manera recursiva, revisando la cadena una y otra vez hasta que ya no queden coincidencias, en lugar de ejecutarse solo una vez. Una alternativa aún más segura es que la aplicación rechace por completo cualquier entrada que contenga el patrón <code>../</code>, en vez de intentar corregirla y seguir procesándola.</li>
+                            <li><strong>Rutas Absolutas y Canonicalización:</strong> Tras recibir la entrada, la aplicación debe anexarla al directorio base estricto y utilizar funciones de canonicalización provistas por el lenguaje de programación (ej. <code>realpath()</code> o <code>os.path.abspath()</code>). Finalmente, el sistema debe verificar de forma rigurosa que la ruta absoluta resultante comience exactamente con el directorio base autorizado antes de proceder con la lectura del archivo.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Referencias -->
+                <div class="card fade-in report-section" style="animation-delay: 0.5s; border-left: 3px solid #ffcc00;">
+                    <div class="card-title" style="color: #ffcc00;">5. REFERENCIAS</div>
+                    <div class="card-content">
+                        <p class="report-text">OWASP. (s.f.). <em>Path Traversal</em>. OWASP Community. Recuperado el 24 de septiembre de 2026, de <a href="https://community.owasp.org/attacks/Path_Traversal" target="_blank" style="color: var(--accent);">https://community.owasp.org/attacks/Path_Traversal</a></p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="margin-top: 20px;">
+                <p> REPORTE TÉCNICO | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
