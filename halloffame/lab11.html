@@ -76,7 +76,7 @@
                     <div class="card-title">2. PROCEDIMIENTO Y EVIDENCIAS</div>
                     <div class="card-content">
                         <p class="report-text">Se ingresó a la tienda virtual del laboratorio, en la cual podemos ver que carga varias imágenes de productos.</p>
-                        <img src="capturas/act11_1.jpg" alt="Tienda Virtual" class="report-img">
+                        <img src="capturas/act11_1.PNG" alt="Tienda Virtual" class="report-img">
 
                         <p class="report-text" style="margin-top: 20px;">Durante la fase de reconocimiento en Burp Suite, se identificó que las peticiones GET hacia <code>/image</code> ya no envían únicamente el nombre del archivo, sino la ruta completa mediante el parámetro <code>filename</code> (ej. <code>filename=/var/www/images/50.jpg</code>). Esto indica que la aplicación transmite la ruta absoluta al backend y valida su punto de partida.</p>
                         <img src="capturas/act11_2.PNG" alt="Proxy HTTP History" class="report-img">
