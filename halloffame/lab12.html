@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Lab 12 | CNO IV</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .report-section { margin-bottom: 30px; }
+        .report-text { font-size: 1.05rem; line-height: 1.6; color: var(--text-light); opacity: 0.9; }
+        .report-text strong { color: var(--accent); }
+        .report-img { width: 100%; max-width: 900px; border: 1px solid var(--accent); border-radius: 4px; margin: 15px 0; box-shadow: 0 0 15px rgba(0, 168, 89, 0.1); }
+        .report-list { margin-left: 20px; margin-bottom: 15px; }
+        .report-list li { margin-bottom: 10px; font-size: 1.05rem; line-height: 1.5; }
+        code { background-color: #1a222c; color: #ffcc00; padding: 2px 6px; border-radius: 3px; font-family: monospace; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-icon pulse"></span>
+                <h2>CNO IV PORTAFOLIO</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
+                <a href="../parcial1/index.html"><span class="nav-dot"></span>02. PARCIAL 1</a>
+                <a href="../parcial2/index.html"><span class="nav-dot"></span>03. PARCIAL 2</a>
+                <a href="../parcial3/index.html"><span class="nav-dot"></span>04. PARCIAL 3</a>
+                <a href="index.html" class="active" style="color: #ffcc00; margin-top: 15px; border-top: 1px solid rgba(255,204,0,0.3); padding-top: 15px;"><span class="nav-dot"></span>🏆 ROAD TO HALL OF FAME</a>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <a href="index.html" class="back-btn">< VOLVER AL ROADMAP</a>
+                <div class="user-info"><span>OP: sys_d3im0s</span></div>
+            </header>
+
+            <div class="grid-container" style="display: block;">
+                
+                <!-- Encabezado del Reporte -->
+                <div class="card fade-in report-section" style="border-left: 3px solid var(--accent);">
+                    <div class="card-title" style="font-size: 1.5rem;">> ACTIVIDAD 12: NULL BYTE BYPASS</div>
+                    <div class="card-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <ul class="report-list" style="list-style-type: none; margin-left: 0;">
+                                <li><strong>Nivel:</strong> Practitioner[cite: 35]</li>
+                                <li><strong>Tipo de Explotación:</strong> File Path Traversal[cite: 35]</li>
+                                <li><strong>Objetivo:</strong> Explorar la vulnerabilidad de File Path Traversal a través del método de petición "GET" del protocolo HTTP, con el fin de poder leer el archivo <code>/etc/passwd</code>[cite: 35].</li>
+                            </ul>
+                        </div>
+                        <a href="../pdf/Act12.pdf" download="Actividad12.pdf" class="back-btn" style="font-size: 0.9rem; border: 1px solid #ffcc00; padding: 10px 20px; background: rgba(255, 204, 0, 0.1); color: #ffcc00;">
+                            [ ↓ ] DESCARGAR ESTE REPORTE EN PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Marco Teórico -->
+                <div class="card fade-in report-section" style="animation-delay: 0.1s;">
+                    <div class="card-title">1. MARCO TEÓRICO Y FUNDAMENTACIÓN TÉCNICA</div>
+                    <div class="card-content">
+                        <ul class="report-list">
+                            <li><strong>Concepto:</strong> La aplicación valida que la cadena recibida en el parámetro <code>filename</code> termine con una extensión permitida (por ejemplo, <code>.jpg</code>)[cite: 35]. Sin embargo, se puede insertar un byte nulo (<code>%00</code>) entre la ruta maliciosa y la extensión[cite: 35]. Muchos lenguajes interpretan el byte nulo como terminador de cadena, haciendo que el sistema ignore la extensión final que se usó solo para evadir la validación[cite: 35].</li>
+                            <li><strong>Impacto en la Tríada CIA:</strong> Compromete de manera directa la <strong>Confidencialidad</strong> de la información, ya que expone datos sensibles del sistema operativo[cite: 35].</li>
+                            <li><strong>Perspectiva OWASP:</strong> Clasificada dentro de la categoría de Broken Access Control (Control de Acceso Roto), ocurre cuando la aplicación construye una ruta de archivo sin validar adecuadamente la entrada del usuario[cite: 35].</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Procedimiento y Evidencias -->
+                <div class="card fade-in report-section" style="animation-delay: 0.2s;">
+                    <div class="card-title">2. PROCEDIMIENTO Y EVIDENCIAS</div>
+                    <div class="card-content">
+                        <p class="report-text">Se ingresó a la tienda virtual del laboratorio, en la cual podemos ver que carga varias imágenes de productos[cite: 35].</p>
+                        <img src="capturas/lab12_cap1.PNG" alt="Tienda Virtual" class="report-img">
+
+                        <p class="report-text" style="margin-top: 20px;">En Burp Suite, se identificó un patrón inseguro en las peticiones GET hacia <code>/image</code> mediante el parámetro <code>filename</code>[cite: 35]. Para visualizar estas peticiones, fue necesario ajustar el filtro y habilitar la casilla 'Images' dentro de 'Filter by MIME type'[cite: 35].</p>
+                        <img src="capturas/lab12_cap2.PNG" alt="Ajuste de filtro en HTTP History" class="report-img">
+                        <img src="capturas/lab12_cap3.PNG" alt="Petición GET original en Repeater" class="report-img">
+
+                        <p class="report-text" style="margin-top: 20px;">Preparamos el payload combinando una secuencia de traversal con un byte nulo seguido de la extensión esperada: <code>../../../etc/passwd%00.jpg</code>[cite: 35]. Con esto se busca que la aplicación valide únicamente el final de la cadena (<code>.jpg</code>) y la acepte como válida[cite: 35].</p>
+                        <img src="capturas/lab12_cap4.PNG" alt="Inyección del payload con byte nulo" class="report-img">
+
+                        <p class="report-text" style="margin-top: 20px;">Damos clic en "Send" y podemos observar que tuvimos éxito y tenemos acceso al archivo passwd[cite: 35].</p>
+                        <img src="capturas/lab12_cap5.PNG" alt="Respuesta exitosa 200 OK con usuarios del sistema" class="report-img">
+                    </div>
+                </div>
+
+                <!-- Análisis Técnico -->
+                <div class="card fade-in report-section" style="animation-delay: 0.3s;">
+                    <div class="card-title">3. EXPLICACIÓN DEL PAYLOAD</div>
+                    <div class="card-content">
+                        <p class="report-text">Al construir el payload <code>../../../etc/passwd%00.jpg</code>, la validación de extensión se cumple, ya que la cadena termina en <code>.jpg</code>[cite: 35].</p>
+                        <p class="report-text">Sin embargo, el byte nulo (<code>%00</code>) es interpretado por el sistema de archivos subyacente como el fin de la cadena, provocando que todo lo que sigue después sea descartado[cite: 35]. El sistema termina procesando únicamente <code>../../../etc/passwd</code>, permitiendo ascender en la jerarquía de directorios y acceder al archivo objetivo sin que la extensión falsa lo impida[cite: 35].</p>
+                    </div>
+                </div>
+
+                <!-- Mitigación -->
+                <div class="card fade-in report-section" style="animation-delay: 0.4s;">
+                    <div class="card-title">4. MITIGACIÓN RECOMENDADA</div>
+                    <div class="card-content">
+                        <ul class="report-list">
+                            <li><strong>Evitar entradas directas:</strong> Usar identificadores en una base de datos para localizar archivos en lugar de pasar directamente la entrada al sistema de archivos[cite: 35].</li>
+                            <li><strong>No confiar en la validación de extensiones:</strong> Verificar que un nombre termine con cierta extensión no impide el acceso a rutas arbitrarias si el resto no ha sido saneado[cite: 35]. La extensión no debe ser tratada como un control de acceso[cite: 35].</li>
+                            <li><strong>Rechazar bytes nulos:</strong> La aplicación debe detectar y rechazar cualquier entrada que contenga bytes nulos (<code>%00</code>) antes de procesarla, ya que pueden interpretarse de forma distinta por el sistema operativo[cite: 35].</li>
+                            <li><strong>Rutas Absolutas y canonicalización:</strong> Anexar la entrada al directorio base estricto y utilizar funciones de canonicalización, verificando que la ruta resultante comience exactamente con el directorio autorizado[cite: 35].</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Referencias -->
+                <div class="card fade-in report-section" style="animation-delay: 0.5s; border-left: 3px solid #ffcc00;">
+                    <div class="card-title" style="color: #ffcc00;">5. REFERENCIAS</div>
+                    <div class="card-content">
+                        <p class="report-text">OWASP. (s.f.). <em>Path Traversal</em>. OWASP Community. Recuperado el 28 de septiembre de 2026, de <a href="https://community.owasp.org/attacks/Path_Traversal" target="_blank" style="color: var(--accent);">https://community.owasp.org/attacks/Path_Traversal</a>[cite: 35]</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="margin-top: 20px;">
+                <p> REPORTE TÉCNICO | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
