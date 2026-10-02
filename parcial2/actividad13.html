@@ -157,31 +157,31 @@
                         
                         <h4 style="color: var(--accent); margin-bottom: 10px; margin-top: 10px;">>_ FASE 1: RECONOCIMIENTO</h4>
                         <p class="report-text">Validación de la interfaz de red local en la máquina atacante (Parrot OS).</p>
-                        <img src="capturas/Act13_Captura1.PNG" alt="IP a" class="report-img">
+                        <img src="img/Act13_Captura1.PNG" alt="IP a" class="report-img">
                         <p class="report-text">Descubrimiento de hosts mediante <code>netdiscover</code> e intercepción de tráfico ARP, confirmando la IP del objetivo (192.168.56.104).</p>
-                        <img src="capturas/Act13_Captura2.PNG" alt="Netdiscover y Ping" class="report-img">
+                        <img src="img/Act13_Captura2.PNG" alt="Netdiscover y Ping" class="report-img">
 
                         <h4 style="color: var(--accent); margin-bottom: 10px; margin-top: 30px;">>_ FASE 2: ENUMERACIÓN</h4>
                         <p class="report-text">Escaneo exhaustivo de puertos con <code>nmap</code>, revelando servicios críticos como FTP (21, 2121), SSH (22), HTTP (80) y SMB (445).</p>
-                        <img src="capturas/Act13_Captura3.PNG" alt="Escaneo Nmap" class="report-img">
+                        <img src="img/Act13_Captura3.PNG" alt="Escaneo Nmap" class="report-img">
                         <p class="report-text">Enumeración de recursos compartidos en SMB utilizando <code>smbmap</code>, detectando el recurso 'smbdata' con permisos de lectura/escritura y el usuario 'smbuser'.</p>
-                        <img src="capturas/Act13_Captura4.PNG" alt="Enumeración SMBMap" class="report-img">
+                        <img src="img/Act13_Captura4.PNG" alt="Enumeración SMBMap" class="report-img">
 
                         <h4 style="color: var(--accent); margin-bottom: 10px; margin-top: 30px;">>_ FASE 3: EXPLOTACIÓN INICIAL</h4>
                         <p class="report-text">Análisis de vulnerabilidades web con <code>nikto</code>, identificando el archivo expuesto <code>/readme.txt</code>.</p>
-                        <img src="capturas/Act13_Captura5.PNG" alt="Escaneo Nikto" class="report-img">
+                        <img src="img/Act13_Captura5.PNG" alt="Escaneo Nikto" class="report-img">
                         <p class="report-text">Lectura del archivo <code>readme.txt</code> desde el navegador, revelando la contraseña en texto plano.</p>
-                        <img src="capturas/Act13_Captura6.PNG" alt="Credenciales expuestas" class="report-img">
+                        <img src="img/Act13_Captura6.PNG" alt="Credenciales expuestas" class="report-img">
                         <p class="report-text">Verificación de acceso anónimo en el servicio FTP del puerto 21.</p>
-                        <img src="capturas/Act13_Captura7.PNG" alt="FTP Anónimo" class="report-img">
+                        <img src="img/Act13_Captura7.PNG" alt="FTP Anónimo" class="report-img">
                         <p class="report-text">Generación de un par de llaves criptográficas con <code>ssh-keygen</code> en la máquina atacante para inyectarlas posteriormente en el servidor.</p>
-                        <img src="capturas/Act13_Captura8.PNG" alt="Generación llaves SSH" class="report-img">
+                        <img src="img/Act13_Captura8.PNG" alt="Generación llaves SSH" class="report-img">
                         <p class="report-text">Acceso exitoso al segundo servicio FTP (puerto 2121) utilizando las credenciales obtenidas (smbuser / rootroot1).</p>
-                        <img src="capturas/Act13_Captura9.PNG" alt="Acceso FTP autenticado" class="report-img">
+                        <img src="img/Act13_Captura9.PNG" alt="Acceso FTP autenticado" class="report-img">
 
                         <h4 style="color: var(--accent); margin-bottom: 10px; margin-top: 30px;">>_ FASE 4: ESCALADA DE PRIVILEGIOS</h4>
                         <p class="report-text">Compilación y ejecución del exploit de DirtyCOW (40616.c). Se sobrescribe <code>/usr/bin/passwd</code>, se obtiene una shell de root y se captura la bandera <code>proof.txt</code>.</p>
-                        <img src="capturas/Act13_Captura14.PNG" alt="Root Shell y Proof.txt" class="report-img">
+                        <img src="img/Act13_Captura14.PNG" alt="Root Shell y Proof.txt" class="report-img">
 
                     </div>
                 </div>
