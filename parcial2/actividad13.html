@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 13 | CNO IV</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .report-section { margin-bottom: 30px; }
+        .report-text { font-size: 1.05rem; line-height: 1.6; color: var(--text-light); opacity: 0.9; }
+        .report-text strong { color: var(--accent); }
+        .report-list { margin-left: 20px; margin-bottom: 15px; }
+        .report-list li { margin-bottom: 10px; font-size: 1.05rem; line-height: 1.5; }
+        .pdf-container {
+            width: 100%;
+            height: 600px;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            margin-top: 15px;
+            background-color: #1a222c;
+        }
+        .vuln-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .vuln-table th, .vuln-table td {
+            border: 1px solid rgba(0, 168, 89, 0.3);
+            padding: 12px;
+            text-align: left;
+        }
+        .vuln-table th {
+            background-color: rgba(0, 168, 89, 0.1);
+            color: var(--accent);
+        }
+        .badge-critica { background: rgba(255, 51, 51, 0.2); color: #ff3333; padding: 3px 8px; border-radius: 3px; font-weight: bold; border: 1px solid #ff3333; }
+        .badge-alta { background: rgba(255, 153, 0, 0.2); color: #ff9900; padding: 3px 8px; border-radius: 3px; font-weight: bold; border: 1px solid #ff9900; }
+        .badge-media { background: rgba(255, 204, 0, 0.2); color: #ffcc00; padding: 3px 8px; border-radius: 3px; font-weight: bold; border: 1px solid #ffcc00; }
+        .report-img { width: 100%; max-width: 900px; border: 1px solid var(--accent); border-radius: 4px; margin: 15px 0; box-shadow: 0 0 15px rgba(0, 168, 89, 0.1); }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar configurado para PARCIAL 2 -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-icon pulse"></span>
+                <h2>CNO IV PORTAFOLIO</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
+                <a href="../parcial1/index.html"><span class="nav-dot"></span>02. PARCIAL 1</a>
+                <a href="index.html" class="active"><span class="nav-dot"></span>03. PARCIAL 2</a>
+                <a href="../parcial3/index.html"><span class="nav-dot"></span>04. PARCIAL 3</a>
+                <a href="../halloffame/index.html" style="color: #ffcc00; margin-top: 15px; border-top: 1px solid rgba(255,204,0,0.3); padding-top: 15px;"><span class="nav-dot"></span>🏆 ROAD TO HALL OF FAME</a>
+            </nav>
+            <div class="system-status">
+                <p>STATUS: <span class="text-green blink">SECURE</span></p>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <a href="index.html" class="back-btn">< VOLVER AL PARCIAL 2</a>
+                <div class="user-info"><span>OP: sys_d3im0s</span></div>
+            </header>
+
+            <div class="grid-container" style="display: block;">
+                
+                <!-- Encabezado de la Actividad -->
+                <div class="card fade-in report-section" style="border-left: 3px solid var(--accent);">
+                    <div class="card-title" style="font-size: 1.5rem;">> ACTIVIDAD 13: RED TEAM REPORT - MY FILE SERVER 1</div>
+                    <div class="card-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <ul class="report-list" style="list-style-type: none; margin-left: 0;">
+                                <li><strong>Objetivo:</strong> My File Server 1 (VulnHub)</li>
+                                <li><strong>Modalidad:</strong> Red Team / Caja Negra</li>
+                                <li><strong>Marco de Referencia:</strong> PTES (Penetration Testing Execution Standard)</li>
+                                <li><strong>Nivel de Riesgo:</strong> <span class="badge-critica">CRÍTICO</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen Ejecutivo -->
+                <div class="card fade-in report-section" style="animation-delay: 0.1s;">
+                    <div class="card-title">1. RESUMEN EJECUTIVO Y METODOLOGÍA</div>
+                    <div class="card-content">
+                        <p class="report-text">Se realizó una evaluación de seguridad ofensiva sobre el servidor corporativo "My File Server 1", simulando un atacante externo sin credenciales ni conocimiento previo del sistema. Se adoptó el estándar <strong>PTES</strong> por su cobertura completa del ciclo ofensivo a nivel de sistema y red, abarcando desde el descubrimiento del objetivo hasta la escalada de privilegios.</p>
+                        <p class="report-text" style="margin-top: 15px;">El sistema fue comprometido en su totalidad, identificando 5 vulnerabilidades (2 de ellas críticas) que permitieron obtener control absoluto sin necesidad de credenciales previas.</p>
+                    </div>
+                </div>
+
+                <!-- Hallazgos -->
+                <div class="card fade-in report-section" style="animation-delay: 0.2s;">
+                    <div class="card-title">2. HALLAZGOS IDENTIFICADOS Y ESCALADA</div>
+                    <div class="card-content">
+                        <table class="vuln-table">
+                            <thead>
+                                <tr>
+                                    <th>Hallazgo</th>
+                                    <th>Impacto / Vector</th>
+                                    <th>Severidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Contraseña expuesta en archivo público</td>
+                                    <td>Archivo <code>/readme.txt</code> detectado vía Nikto exponía credenciales en texto plano.</td>
+                                    <td><span class="badge-critica">Crítica</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Kernel desactualizado (DirtyCOW)</td>
+                                    <td>El kernel Linux 3.10.0-229.el7 es vulnerable a CVE-2016-5195, permitiendo sobrescribir <code>/usr/bin/passwd</code> para obtener shell como root.</td>
+                                    <td><span class="badge-critica">Crítica</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Recurso SMB sin autenticación</td>
+                                    <td>El recurso "smbdata" permite sesiones nulas y expone el usuario "smbuser" con permisos de escritura.</td>
+                                    <td><span class="badge-alta">Alta</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Acceso remoto persistente por llave SSH</td>
+                                    <td>Aprovechando permisos FTP, se inyectó una llave pública SSH en <code>/home/smbuser/.ssh/authorized_keys</code>.</td>
+                                    <td><span class="badge-alta">Alta</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Servidor FTP con acceso anónimo</td>
+                                    <td>vsftpd permite acceso no autenticado al directorio de red.</td>
+                                    <td><span class="badge-media">Media</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Visualizadores de PDF -->
+                <div class="card fade-in report-section" style="animation-delay: 0.3s;">
+                    <div class="card-title">3. DOCUMENTACIÓN ENTREGABLE</div>
+                    <div class="card-content">
+                        <p class="report-text" style="margin-bottom: 15px;"><strong>>_ REPORTE TÉCNICO COMPLETO</strong></p>
+                        <a href="../pdf/Act13.pdf" download="Actividad13_Reporte.pdf" class="back-btn" style="font-size: 0.8rem; border: 1px solid var(--accent); padding: 8px 15px; color: var(--accent);">[ ↓ ] DESCARGAR REPORTE</a>
+                        <iframe src="../pdf/Act13.pdf" class="pdf-container" title="Reporte Técnico My File Server 1"></iframe>
+
+                        <p class="report-text" style="margin-top: 40px; margin-bottom: 15px;"><strong>>_ PRESENTACIÓN EJECUTIVA</strong></p>
+                        <a href="../pdf/Activiad13Presentacion.pdf" download="Actividad13_Presentacion.pdf" class="back-btn" style="font-size: 0.8rem; border: 1px solid #ffcc00; padding: 8px 15px; color: #ffcc00;">[ ↓ ] DESCARGAR PRESENTACIÓN</a>
+                        <iframe src="../pdf/Activiad13Presentacion.pdf" class="pdf-container" style="border-color: #ffcc00;" title="Presentación Ejecutiva My File Server 1"></iframe>
+                    </div>
+                </div>
+
+                <!-- Evidencias Terminal -->
+                <div class="card fade-in report-section" style="animation-delay: 0.4s;">
+                    <div class="card-title">4. EVIDENCIAS TÉCNICAS (OPERACIONES EN TERMINAL)</div>
+                    <div class="card-content">
+                        
+                        <h4 style="color: var(--accent); margin-bottom: 10px; margin-top: 10px;">>_ FASE 1: RECONOCIMIENTO</h4>
+                        <p class="report-text">Validación de la interfaz de red local en la máquina atacante (Parrot OS).</p>
+                        <img src="capturas/Act13_Captura1.jpg" alt="IP a" class="report-img">
+                        <p class="report-text">Descubrimiento de hosts mediante <code>netdiscover</code> e intercepción de tráfico ARP, confirmando la IP del objetivo (192.168.56.104).</p>
+                        <img src="capturas/Act13_Captura2.jpg" alt="Netdiscover y Ping" class="report-img">
+
+                        <h4 style="color: var(--accent); margin-bottom: 10px; margin-top: 30px;">>_ FASE 2: ENUMERACIÓN</h4>
+                        <p class="report-text">Escaneo exhaustivo de puertos con <code>nmap</code>, revelando servicios críticos como FTP (21, 2121), SSH (22), HTTP (80) y SMB (445).</p>
+                        <img src="capturas/Act13_Captura3.jpg" alt="Escaneo Nmap" class="report-img">
+                        <p class="report-text">Enumeración de recursos compartidos en SMB utilizando <code>smbmap</code>, detectando el recurso 'smbdata' con permisos de lectura/escritura y el usuario 'smbuser'.</p>
+                        <img src="capturas/Act13_Captura4.jpg" alt="Enumeración SMBMap" class="report-img">
+
+                        <h4 style="color: var(--accent); margin-bottom: 10px; margin-top: 30px;">>_ FASE 3: EXPLOTACIÓN INICIAL</h4>
+                        <p class="report-text">Análisis de vulnerabilidades web con <code>nikto</code>, identificando el archivo expuesto <code>/readme.txt</code>.</p>
+                        <img src="capturas/Act13_Captura5.jpg" alt="Escaneo Nikto" class="report-img">
+                        <p class="report-text">Lectura del archivo <code>readme.txt</code> desde el navegador, revelando la contraseña en texto plano.</p>
+                        <img src="capturas/Act13_Captura6.PNG" alt="Credenciales expuestas" class="report-img">
+                        <p class="report-text">Verificación de acceso anónimo en el servicio FTP del puerto 21.</p>
+                        <img src="capturas/Act13_Captura7.jpg" alt="FTP Anónimo" class="report-img">
+                        <p class="report-text">Generación de un par de llaves criptográficas con <code>ssh-keygen</code> en la máquina atacante para inyectarlas posteriormente en el servidor.</p>
+                        <img src="capturas/Act13_Captura8.jpg" alt="Generación llaves SSH" class="report-img">
+                        <p class="report-text">Acceso exitoso al segundo servicio FTP (puerto 2121) utilizando las credenciales obtenidas (smbuser / rootroot1).</p>
+                        <img src="capturas/Act13_Captura9.jpg" alt="Acceso FTP autenticado" class="report-img">
+
+                        <h4 style="color: var(--accent); margin-bottom: 10px; margin-top: 30px;">>_ FASE 4: ESCALADA DE PRIVILEGIOS</h4>
+                        <p class="report-text">Compilación y ejecución del exploit de DirtyCOW (40616.c). Se sobrescribe <code>/usr/bin/passwd</code>, se obtiene una shell de root y se captura la bandera <code>proof.txt</code>.</p>
+                        <img src="capturas/Act13_Captura14.jpg" alt="Root Shell y Proof.txt" class="report-img">
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="margin-top: 20px;">
+                <p> RED TEAM ENGAGEMENT | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
