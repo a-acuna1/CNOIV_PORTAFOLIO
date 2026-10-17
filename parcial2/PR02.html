@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR02 | CNO IV Portafolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .report-section { margin-bottom: 30px; }
+        .report-text { font-size: 1.05rem; line-height: 1.6; color: var(--text-light); opacity: 0.9; }
+        .report-text strong { color: var(--accent); }
+        .report-list { margin-left: 20px; margin-bottom: 15px; }
+        .report-list li { margin-bottom: 10px; font-size: 1.05rem; line-height: 1.5; }
+        .pdf-container {
+            width: 100%;
+            height: 700px;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            margin-top: 15px;
+            background-color: #1a222c;
+        }
+        .vuln-table-wrapper {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 168, 89, 0.3);
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        .vuln-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .vuln-table th, .vuln-table td {
+            border-bottom: 1px solid rgba(0, 168, 89, 0.2);
+            padding: 12px;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        .vuln-table th {
+            background-color: rgba(0, 168, 89, 0.1);
+            color: var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .badge-critica { background: rgba(255, 51, 51, 0.2); color: #ff3333; padding: 3px 8px; border-radius: 3px; font-weight: bold; border: 1px solid #ff3333; font-size: 0.8rem;}
+        .badge-alta { background: rgba(255, 153, 0, 0.2); color: #ff9900; padding: 3px 8px; border-radius: 3px; font-weight: bold; border: 1px solid #ff9900; font-size: 0.8rem;}
+        .badge-media { background: rgba(255, 204, 0, 0.2); color: #ffcc00; padding: 3px 8px; border-radius: 3px; font-weight: bold; border: 1px solid #ffcc00; font-size: 0.8rem;}
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .download-card {
+            background: rgba(0, 168, 89, 0.05);
+            border: 1px dashed var(--accent);
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .download-card a {
+            display: block;
+            margin-top: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid var(--accent);
+            padding: 5px;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        .download-card a:hover { background: var(--accent); color: #000; }
+        
+        /* Scrollbar personalizado para la tabla */
+        .vuln-table-wrapper::-webkit-scrollbar { width: 8px; }
+        .vuln-table-wrapper::-webkit-scrollbar-track { background: #0b0f14; }
+        .vuln-table-wrapper::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-icon pulse">🛡️</span>
+                <h2>CNO IV PORTAFOLIO</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
+                <a href="../parcial1/index.html"><span class="nav-dot"></span>02. PARCIAL 1</a>
+                <a href="index.html" class="active"><span class="nav-dot"></span>03. PARCIAL 2</a>
+                <a href="../parcial3/index.html"><span class="nav-dot"></span>04. PARCIAL 3</a>
+                <a href="../halloffame/index.html" style="color: #ffcc00; margin-top: 15px; border-top: 1px solid rgba(255,204,0,0.3); padding-top: 15px;"><span class="nav-dot"></span>🏆 ROAD TO HALL OF FAME</a>
+            </nav>
+            <div class="system-status">
+                <p>STATUS: <span class="text-green blink">SECURE</span></p>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <a href="index.html" class="back-btn">< VOLVER AL PARCIAL 2</a>
+                <div class="user-info"><span>OP: sys_d3im0s</span></div>
+            </header>
+
+            <div class="grid-container" style="display: block;">
+                
+                <!-- Encabezado de la Actividad -->
+                <div class="card fade-in report-section" style="border-left: 3px solid var(--accent);">
+                    <div class="card-title" style="font-size: 1.5rem;">> PR02: BLINDANDO LA INFORMACIÓN - GOBERNANZA Y CUMPLIMIENTO</div>
+                    <div class="card-content">
+                        <p class="report-text"><strong>Contexto del Proyecto:</strong> El proyecto se desarrolla sobre INTERAFAS-LAB, un entorno académico controlado que representa una organización ficticia responsable de servicios de infraestructura crítica de agua potable.</p>
+                        <p class="report-text" style="margin-top: 10px;"><strong>Objetivo General:</strong> Evaluar integralmente la postura de ciberseguridad y la capacidad de respuesta mediante la identificación de vulnerabilidades, la recopilación de evidencia técnica, y el diseño de mecanismos de gobernanza (ISO/IEC 27001), comunicación de crisis y respuesta ante incidentes.</p>
+                    </div>
+                </div>
+
+                <!-- Tabla Maestra de Vulnerabilidades -->
+                <div class="card fade-in report-section" style="animation-delay: 0.1s;">
+                    <div class="card-title">1. INVENTARIO DE VULNERABILIDADES (TOP 20)</div>
+                    <div class="card-content">
+                        <p class="report-text">Se identificaron, comprobaron y documentaron 20 vulnerabilidades presentes en la infraestructura tecnológica simulada de INTERAFAS, abarcando desde la capa web pública hasta la red de Tecnología Operacional (OT).</p>
+                        
+                        <div class="vuln-table-wrapper">
+                            <table class="vuln-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Categoría OWASP</th>
+                                        <th>Componente Afectado</th>
+                                        <th>Bandera Capturada</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>VULN-01</strong></td>
+                                        <td>Listado de Directorios</td>
+                                        <td><code>/assets/docs/public/revision/</code></td>
+                                        <td><span class="badge-media">UPSLP_CNOIV-OPEN-DOOR-01</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-02</strong></td>
+                                        <td>Exposición de Metadatos</td>
+                                        <td><code>/assets/runtime-config.js</code></td>
+                                        <td><span class="badge-media">UPSLP_CNOIV-LOOK-CLOSER-02</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-03</strong></td>
+                                        <td>IDOR / Control de Acceso Roto</td>
+                                        <td><code>/expediente.php</code></td>
+                                        <td><span class="badge-alta">UPSLP_CNOIV-NOT-YOURS-03</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-04</strong></td>
+                                        <td>Exposición de Código Fuente</td>
+                                        <td><code>/transparencia.php.bak</code></td>
+                                        <td><span class="badge-alta">UPSLP_CNOIV-OLD-MEMORIES-04</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-05</strong></td>
+                                        <td>Modo Debug Activo</td>
+                                        <td><code>/exportar.php?tipo=xyz123</code></td>
+                                        <td><span class="badge-media">UPSLP_CNOIV-TOO-MUCH-INFO-05</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-06</strong></td>
+                                        <td>Escalamiento de Privilegios</td>
+                                        <td><code>/gestion-proveedores.php</code></td>
+                                        <td><span class="badge-critica">UPSLP_CNOIV-WRONG-ROLE-06</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-07</strong></td>
+                                        <td>Blind SQL Injection</td>
+                                        <td><code>/validar-referencia.php?ref=</code></td>
+                                        <td><span class="badge-critica">UPSLP_CNOIV-SILENT-ANSWER-07</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-08</strong></td>
+                                        <td>Stored XSS</td>
+                                        <td><code>/reportes.php</code></td>
+                                        <td><span class="badge-alta">UPSLP_CNOIV-STORED-WORDS-08</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-09</strong></td>
+                                        <td>Path Traversal</td>
+                                        <td><code>/descargar-documento.php?file=</code></td>
+                                        <td><span class="badge-critica">UPSLP_CNOIV-TOO-DEEP-09</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-10</strong></td>
+                                        <td>Fijación de Sesión</td>
+                                        <td><code>/login.php</code> y <code>/perfil.php</code></td>
+                                        <td><span class="badge-alta">UPSLP_CNOIV-WHO-ARE-YOU-10</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-11</strong></td>
+                                        <td>Shadow API</td>
+                                        <td><code>/api/service-history.php</code></td>
+                                        <td><span class="badge-media">UPSLP_CNOIV-HIDDEN-HISTORY-11</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-12</strong></td>
+                                        <td>BOLA / IDOR en API</td>
+                                        <td><code>/api/service-history.php?account=</code></td>
+                                        <td><span class="badge-alta">UPSLP_CNOIV-SECOND-ACCOUNT-12</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-13</strong></td>
+                                        <td>Fallo de Lógica en Pagos</td>
+                                        <td><code>/pago.php (POST monto)</code></td>
+                                        <td><span class="badge-critica">UPSLP_CNOIV-PAYMENT-PATH-13</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-14</strong></td>
+                                        <td>Fallo de Validación Relacional</td>
+                                        <td><code>/validar-vinculo-contractual.php</code></td>
+                                        <td><span class="badge-alta">UPSLP_CNOIV-TRUSTED-SUPPLIER-14</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-15</strong></td>
+                                        <td>Fuga de Topología OT</td>
+                                        <td><code>/api/infrastructure-status.php</code></td>
+                                        <td><span class="badge-critica">UPSLP_CNOIV-BEHIND-THE-DESK-15</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-16</strong></td>
+                                        <td>Evasión de Frontera de Red (IP Spoofing)</td>
+                                        <td><code>/operations/gateway.php</code></td>
+                                        <td><span class="badge-critica">UPSLP_CNOIV-BEYOND-THE-WEB-16</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-17</strong></td>
+                                        <td>Falta de Autenticación OT</td>
+                                        <td><code>/operations/telemetry.php</code></td>
+                                        <td><span class="badge-critica">UPSLP_CNOIV-EYES-ON-THE-PLANT-17</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-18</strong></td>
+                                        <td>Fallo de Integridad de Firmware</td>
+                                        <td><code>/operations/updates/install.php</code></td>
+                                        <td><span class="badge-critica">UPSLP_CNOIV-TRUST-THE-PACKAGE-18</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-19</strong></td>
+                                        <td>Exceso de Alcance OT</td>
+                                        <td><code>/operations/asset-context.php</code></td>
+                                        <td><span class="badge-critica">UPSLP_CNOIV-CHAIN-REACTION-19</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VULN-20</strong></td>
+                                        <td>Manipulación de Setpoint en RTU</td>
+                                        <td><code>/operations/firmware.php</code></td>
+                                        <td><span class="badge-critica">UPSLP_CNOIV-NOW-YOU-CONTROL-20</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cadena de Ataque -->
+                <div class="card fade-in report-section" style="animation-delay: 0.2s;">
+                    <div class="card-title">2. CADENA DE ATAQUE: DEL PERÍMETRO WEB AL ENTORNO OT</div>
+                    <div class="card-content">
+                        <p class="report-text">Las 20 vulnerabilidades identificadas en INTERAFAS-LAB no son fallos aislados; al relacionarse entre sí, forman una cadena de ataque progresiva (Kill Chain) que demuestra cómo la deuda técnica en aplicaciones web termina comprometiendo sistemas industriales críticos:</p>
+                        <ol class="report-list" style="margin-top: 15px;">
+                            <li><strong>Reconocimiento y exposición inicial:</strong> Archivos olvidados (.zip, .env, .bak) revelaron rutas del servidor y el esquema de base de datos.</li>
+                            <li><strong>Abuso de autorización en la capa web:</strong> Fallas en el control de sesiones (IDOR) permitieron extraer expedientes, liquidar facturas y escalar privilegios modificando la cookie <code>portal_role</code>.</li>
+                            <li><strong>Pivoteo y fuga de topología:</strong> Inyección SQL ciega permitió extraer hashes de soporte, mientras un endpoint público reveló el segmento operacional <code>10.40.20.0/24</code>.</li>
+                            <li><strong>Ruptura de la frontera IT/OT:</strong> Engañando al gateway operacional con <code>X-Forwarded-For: 10.40.20.1</code>, se accedió a la telemetría en vivo de la planta.</li>
+                            <li><strong>Impacto operacional mayor:</strong> Con las credenciales SHA-1 descifradas y la falta de verificación de firmas, se inyectó un firmware falso para desbloquear la RTU-GW-07 y alterar la presión hidráulica hasta el colapso del sistema.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Entregables del Proyecto -->
+                <div class="card fade-in report-section" style="animation-delay: 0.3s;">
+                    <div class="card-title">3. PRODUCTOS ENTREGABLES DEL PROYECTO PR02</div>
+                    <div class="card-content">
+                        <p class="report-text">Al concluir el proyecto, se generan los siguientes cinco productos documentales orientados al análisis técnico, gobernanza y gestión de crisis:</p>
+                        
+                        <div class="download-grid">
+                            <div class="download-card">
+                                <h5>01. Bitácora y Logs</h5>
+                                <p style="font-size: 0.8rem; margin-top: 5px;">Contiene la secuencia de acciones y las 20 banderas.</p>
+                                <a href="../archivos/01.matricula.zip" download="01.matricula.zip">Descargar .ZIP</a>
+                            </div>
+                            <div class="download-card">
+                                <h5>03. Propuesta SGSI (ISO 27001)</h5>
+                                <p style="font-size: 0.8rem; margin-top: 5px;">Identificación de riesgos, controles y matriz RACI.</p>
+                                <a href="../pdf/03.AcuñaAngel_ISO27.pdf" download="03.AcuñaAngel_ISO27.pdf">Descargar PDF</a>
+                            </div>
+                            <div class="download-card">
+                                <h5>04. Plan de Comunicación</h5>
+                                <p style="font-size: 0.8rem; margin-top: 5px;">Gestión mediática y reputacional durante el incidente.</p>
+                                <a href="../pdf/04.AcuñaAngel_PlanComunicacionCrisis.pdf" download="04.AcuñaAngel_PlanComunicacionCrisis.pdf">Descargar PDF</a>
+                            </div>
+                            <div class="download-card">
+                                <h5>05. Plan de Respuesta (CISA)</h5>
+                                <p style="font-size: 0.8rem; margin-top: 5px;">Procedimientos de triage, contención y remediación.</p>
+                                <a href="../pdf/05.AcuñaAngel_PlanRespuestaAnteIncidentes.pdf" download="05.AcuñaAngel_PlanRespuestaAnteIncidentes.pdf">Descargar PDF</a>
+                            </div>
+                        </div>
+
+                        <p class="report-text" style="margin-top: 40px; margin-bottom: 15px;"><strong>>_ 02. INFORME DE SEGURIDAD OFENSIVA (TECHNICAL REPORT)</strong></p>
+                        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px;">Documento extendido de 68 páginas con la descripción de la causa raíz, explotación y remediación de cada una de las vulnerabilidades.</p>
+                        <a href="../pdf/02.AcuñaAngel_InformeSeguridadOfensiva.pdf" download="02.AcuñaAngel_InformeSeguridadOfensiva.pdf" class="back-btn" style="font-size: 0.8rem; border: 1px solid var(--accent); padding: 8px 15px; color: var(--accent);">[ ↓ ] DESCARGAR INFORME COMPLETO PDF</a>
+                        <iframe src="../pdf/02.AcuñaAngel_InformeSeguridadOfensiva.pdf" class="pdf-container" title="Informe de Seguridad Ofensiva PR02"></iframe>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="margin-top: 20px;">
+                <p> PROYECTO 02: GOBERNANZA Y CUMPLIMIENTO | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
