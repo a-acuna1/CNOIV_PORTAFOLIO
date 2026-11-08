@@ -99,4 +99,89 @@
                 </div>
 
                 <!-- Detalles de la Adquisición -->
-                <div class="card fade-in
+                <div class="card fade-in report-section" style="animation-delay: 0.1s;">
+                    <div class="card-title">1. METADATOS DEL DISPOSITIVO FÍSICO Y TIEMPOS DE ADQUISICIÓN</div>
+                    <div class="card-content">
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <h4 style="color: var(--accent); margin-bottom: 10px;">> Drive Geometry</h4>
+                                <ul class="report-list" style="margin-left: 0; list-style-type: none; font-size: 0.9rem;">
+                                    <li><strong>Cylinders:</strong> 1,912[cite: 200]</li>
+                                    <li><strong>Tracks per Cylinder:</strong> 255[cite: 200]</li>
+                                    <li><strong>Sectors per Track:</strong> 63[cite: 200]</li>
+                                    <li><strong>Bytes per Sector:</strong> 512[cite: 200]</li>
+                                    <li><strong>Sector Count:</strong> 30,720,000[cite: 200]</li>
+                                </ul>
+                            </div>
+                            <div class="info-card">
+                                <h4 style="color: var(--accent); margin-bottom: 10px;">> Physical Drive Info</h4>
+                                <ul class="report-list" style="margin-left: 0; list-style-type: none; font-size: 0.9rem;">
+                                    <li><strong>Model:</strong> Generic Flash Disk USB Device[cite: 200]</li>
+                                    <li><strong>Serial Number:</strong> 48021510[cite: 200]</li>
+                                    <li><strong>Interface:</strong> USB[cite: 200]</li>
+                                    <li><strong>Size:</strong> 15000 MB[cite: 200]</li>
+                                </ul>
+                            </div>
+                            <div class="info-card">
+                                <h4 style="color: var(--accent); margin-bottom: 10px;">> Cronometraje Operativo</h4>
+                                <ul class="report-list" style="margin-left: 0; list-style-type: none; font-size: 0.9rem;">
+                                    <li><strong>Inicio:</strong> Sat Nov 7 12:01:47 2026[cite: 198, 200]</li>
+                                    <li><strong>Fin (Adquisición):</strong> Sat Nov 7 12:11:17 2026[cite: 198, 200]</li>
+                                    <li><strong>Tiempo transcurrido:</strong> 9 minutos y 30 segundos[cite: 198]</li>
+                                    <li><strong>Fin (Verificación):</strong> Sat Nov 7 12:12:12 2026[cite: 200]</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Archivo de Log Forense -->
+                <div class="card fade-in report-section" style="animation-delay: 0.2s;">
+                    <div class="card-title">2. RESULTADOS DE INTEGRIDAD (HASHES) Y ESTRUCTURA DE IMAGEN</div>
+                    <div class="card-content">
+                        <p class="report-text">Se generaron <strong>11 archivos</strong> en total (10 fragmentos de 1500 MB y 1 archivo de texto con el log de FTK Imager)[cite: 198]. La integridad de la copia bit a bit (formato Raw/dd) se verificó contra la memoria original utilizando los algoritmos criptográficos MD5 y SHA-1, validando el proceso exitosamente[cite: 198, 200].</p>
+                        
+                        <div class="code-block" style="margin-top: 15px;">
+[Computed Hashes]
+MD5 checksum:    6aec1356674c7af6bfb58cb88e557dcd
+SHA1 checksum:   6c7fefd40ad57f4804395ea5fad7cef1acda5396
+
+Image Verification Results:
+Verification started:  Sat Nov  7 12:11:19 2026
+Verification finished: Sat Nov  7 12:12:12 2026
+MD5 checksum:    6aec1356674c7af6bfb58cb88e557dcd : verified
+SHA1 checksum:   6c7fefd40ad57f4804395ea5fad7cef1acda5396 : verified
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formatos Forenses -->
+                <div class="card fade-in report-section" style="animation-delay: 0.3s;">
+                    <div class="card-title">3. ANÁLISIS DE FORMATOS DE ADQUISICIÓN FORENSE</div>
+                    <div class="card-content">
+                        <ul class="report-list">
+                            <li><strong>Formato Raw (dd):</strong> Es una copia exacta bit a bit de la memoria o dispositivo sin ningún tipo de compresión ni datos o metadatos integrados dentro del propio archivo contenedor[cite: 198].</li>
+                            <li><strong>Formato E01 (EnCase Evidence):</strong> A diferencia del Raw, este encapsula la copia bit a bit e integra los metadatos de la investigación (hashes, examinador, notas, número de caso) dentro del mismo archivo, además de ofrecer compresión[cite: 198]. Creado por Guidance Software, es el estándar más utilizado en la industria y en entornos Windows[cite: 198].</li>
+                            <li><strong>Formato SMART:</strong> Al igual que el E01, encapsula metadatos junto con la imagen. Sin embargo, su origen y entorno son distintos: fue diseñado por ASR Data específicamente para entornos de análisis forense en sistemas Linux[cite: 198].</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Visor de PDF -->
+                <div class="card fade-in report-section" style="animation-delay: 0.4s;">
+                    <div class="card-title">4. REGISTRO GRÁFICO (REPORTE PDF)</div>
+                    <div class="card-content">
+                        <iframe src="../pdf/AcuñaQuezadaAngel-ACT16.pdf" class="pdf-container" title="Actividad 16 PDF"></iframe>
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="margin-top: 20px;">
+                <p> INFORMÁTICA CRIMINOLÓGICA | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
