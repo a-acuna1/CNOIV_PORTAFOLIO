@@ -1,0 +1,54 @@
+﻿Created By AccessData® FTK® Imager 4.3.1.1 
+
+Case Information: 
+Acquired using: ADI4.3.1.1
+Case Number: InfoCrim-01_07.11.2026
+Evidence Number: 00
+Unique description: CNO IV - análisis de incidente de fraude bancario
+Examiner: Acuña Quezada Angel Aaron
+Notes: Adquisición realizada en LIF de la UPSLP
+
+--------------------------------------------------------------
+
+Information for C:\Users\D3im05\Desktop\InfoCrim13\infocrim_AcuñaQuezadaAngel:
+
+Physical Evidentiary Item (Source) Information:
+[Device Info]
+ Source Type: Physical
+[Drive Geometry]
+ Cylinders: 1,912
+ Tracks per Cylinder: 255
+ Sectors per Track: 63
+ Bytes per Sector: 512
+ Sector Count: 30,720,000
+[Physical Drive Information]
+ Drive Model: Generic Flash Disk USB Device
+ Drive Serial Number: 48021510
+ Drive Interface Type: USB
+ Removable drive: True
+ Source data size: 15000 MB
+ Sector count:    30720000
+[Computed Hashes]
+ MD5 checksum:    6aec1356674c7af6bfb58cb88e557dcd
+ SHA1 checksum:   6c7fefd40ad57f4804395ea5fad7cef1acda5396
+
+Image Information:
+ Acquisition started:   Sat Nov  7 12:01:47 2026
+ Acquisition finished:  Sat Nov  7 12:11:17 2026
+ Segment list:
+  C:\Users\D3im05\Desktop\InfoCrim13\infocrim_AcuñaQuezadaAngel.001
+  C:\Users\D3im05\Desktop\InfoCrim13\infocrim_AcuñaQuezadaAngel.002
+  C:\Users\D3im05\Desktop\InfoCrim13\infocrim_AcuñaQuezadaAngel.003
+  C:\Users\D3im05\Desktop\InfoCrim13\infocrim_AcuñaQuezadaAngel.004
+  C:\Users\D3im05\Desktop\InfoCrim13\infocrim_AcuñaQuezadaAngel.005
+  C:\Users\D3im05\Desktop\InfoCrim13\infocrim_AcuñaQuezadaAngel.006
+  C:\Users\D3im05\Desktop\InfoCrim13\infocrim_AcuñaQuezadaAngel.007
+  C:\Users\D3im05\Desktop\InfoCrim13\infocrim_AcuñaQuezadaAngel.008
+  C:\Users\D3im05\Desktop\InfoCrim13\infocrim_AcuñaQuezadaAngel.009
+  C:\Users\D3im05\Desktop\InfoCrim13\infocrim_AcuñaQuezadaAngel.010
+
+Image Verification Results:
+ Verification started:  Sat Nov  7 12:11:19 2026
+ Verification finished: Sat Nov  7 12:12:12 2026
+ MD5 checksum:    6aec1356674c7af6bfb58cb88e557dcd : verified
+ SHA1 checksum:   6c7fefd40ad57f4804395ea5fad7cef1acda5396 : verified
