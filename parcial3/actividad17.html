@@ -74,4 +74,99 @@
                 <!-- Encabezado de la Actividad -->
                 <div class="card fade-in report-section" style="border-left: 3px solid var(--accent);">
                     <div class="card-title" style="font-size: 1.5rem;">> ACTIVIDAD 17: LA MEMORIA DEL CRIMEN - VOLCADO RAM</div>
-                    <div class="card-content" style="display
+                    <div class="card-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <ul class="report-list" style="list-style-type: none; margin-left: 0;">
+                                <li><strong>Herramienta:</strong> Volatility Framework 2.6[cite: 202, 203]</li>
+                                <li><strong>Objetivo:</strong> Análisis forense de memoria volátil (<code>OtterCTF.vmem</code>)[cite: 202].</li>
+                                <li><strong>Contexto:</strong> Rastrear las actividades de un presunto cibercriminal ("Morty"), recuperar su contraseña, identificar el C2 (Command & Control) y localizar la billetera cripto usada para extorsión[cite: 201].</li>
+                            </ul>
+                        </div>
+                        <a href="../pdf/AcuñaQuezadaAngelAaron_Act17.pdf" download="AcuñaQuezadaAngelAaron_Act17.pdf" class="back-btn" style="font-size: 0.9rem; border: 1px solid #ffcc00; padding: 10px 20px; background: rgba(255, 204, 0, 0.1); color: #ffcc00;">
+                            [ ↓ ] DESCARGAR REPORTE PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Análisis de Metadatos -->
+                <div class="card fade-in report-section" style="animation-delay: 0.1s;">
+                    <div class="card-title">1. PERFILADO DE IMAGEN Y EXTRACCIÓN DE CREDENCIALES</div>
+                    <div class="card-content">
+                        
+                        <p class="report-text">Se inició el análisis determinando el perfil del sistema operativo a partir de la estructura KDBG de la imagen. La marca de tiempo local de la memoria capturada fue identificada como <strong>2018-08-04 22:34:22 +0300</strong>, bajo una arquitectura <strong>Win7SP1x64</strong>[cite: 202].</p>
+                        
+                        <div class="command-title">>_ PERFILADO DEL VOLCADO</div>
+                        <div class="code-block">.\volatility_2.6_win64_standalone.exe -f OtterCTF.vmem imageinfo</div>
+
+                        <p class="report-text">Posteriormente, se procedió a extraer la contraseña de texto plano almacenada en memoria para el usuario <em>Rick</em> (el perfil activo del cibercriminal "Morty"). Esto se logró combinando los módulos <code>hashdump</code> y <code>lsadump</code>[cite: 203].</p>
+                        
+                        <div class="command-title">>_ EXTRACCIÓN DE CONTRASEÑA LSA</div>
+                        <div class="code-block">.\volatility_2.6_win64_standalone.exe -f OtterCTF.vmem --profile=Win7SP1x64 lsadump</div>
+                        <p class="report-text"><strong>> Contraseña recuperada:</strong> M.o.r.t.y.I.S.R.e.a.l.l.y.A.n.O.t.t.e.r[cite: 203]</p>
+
+                    </div>
+                </div>
+
+                <!-- Análisis de Red -->
+                <div class="card fade-in report-section" style="animation-delay: 0.2s;">
+                    <div class="card-title">2. INVESTIGACIÓN DE RED Y PROCESOS MALICIOSOS</div>
+                    <div class="card-content">
+                        
+                        <p class="report-text">Se analizó la tabla de conexiones de red activas durante el volcado de memoria. Se identificó la IP Local (<code>192.168.202.131</code>)[cite: 203, 204] y la conexión hacia un servidor malicioso (C2)[cite: 206] externo:</p>
+                        
+                        <div class="command-title">>_ CONEXIONES DE RED ACTIVAS</div>
+                        <div class="code-block">.\volatility_2.6_win64_standalone.exe -f OtterCTF.vmem --profile=Win7SP1x64 netscan</div>
+                        
+                        <ul class="report-list">
+                            <li><strong>Proceso:</strong> LunarMS.exe (PID 708)[cite: 206]</li>
+                            <li><strong>IP Destino (C2):</strong> 77.102.199.102 : 7575[cite: 206, 207]</li>
+                            <li><strong>Geolocalización del Atacante:</strong> Londres, Inglaterra[cite: 207].</li>
+                        </ul>
+
+                        <p class="report-text">Asimismo, se extrajo el nombre de la computadora interrogando directamente la clave del Registro del Sistema (<code>WIN-LO6FAF3DTFE</code>), lo cual permite vincular el equipo a otras evidencias recolectadas por inteligencia[cite: 205].</p>
+
+                        <div class="command-title">>_ NOMBRE DEL ORDENADOR (REGISTRY)</div>
+                        <div class="code-block">.\volatility_2.6_win64_standalone.exe -f OtterCTF.vmem --profile=Win7SP1x64 printkey -K "ControlSet001\Control\ComputerName\ComputerName"</div>
+
+                    </div>
+                </div>
+
+                <!-- Artefactos Forenses: Correos y Cripto -->
+                <div class="card fade-in report-section" style="animation-delay: 0.3s;">
+                    <div class="card-title">3. EXTRACCIÓN DE ARTEFACTOS: CORREOS Y BILLETERA BTC</div>
+                    <div class="card-content">
+                        
+                        <p class="report-text">Se realizó un volcado completo de la memoria del proceso del navegador (<code>chrome.exe</code> - PID 4076) para buscar direcciones de correo electrónico utilizadas para ingeniería social[cite: 206, 208].</p>
+                        
+                        <div class="command-title">>_ VOLCADO DE PROCESO (CHROME)</div>
+                        <div class="code-block">.\volatility_2.6_win64_standalone.exe -f OtterCTF.vmem --profile=Win7SP1x64 memdump -p 4076 -D .</div>
+                        <p class="report-text"><strong>> Correos identificados:</strong> rickypinky@mail.com, rickopicko@mail.com[cite: 208].</p>
+
+                        <p class="report-text" style="margin-top: 20px;">Finalmente, se investigó el proceso PID 3720 (<code>vmware-tray.exe</code>), el cual ocultaba el malware real. Se volcó la memoria de este proceso y se filtró usando una expresión regular para detectar la billetera de criptomonedas vinculada a las extorsiones de la botnet[cite: 208].</p>
+                        
+                        <div class="command-title">>_ EXTRACCIÓN DE BILLETERA BITCOIN</div>
+                        <div class="code-block">Select-String -Path .\3720.dmp -Pattern "[13][a-km-zA-HJ-NP-Z1-9]{25,34}"</div>
+                        <p class="report-text"><strong>> Billetera BTC:</strong> 1MmpEmebJkqXG8nQv4cjJSmxZQFVmFo63M[cite: 208]</p>
+                        <p class="report-text" style="font-size: 0.9rem; opacity: 0.8;">Nota: Al consultar bases de datos de inteligencia sobre amenazas, esta dirección aún no figuraba en las listas negras de "BTC Black It"[cite: 209].</p>
+
+                    </div>
+                </div>
+
+                <!-- Visor de PDF -->
+                <div class="card fade-in report-section" style="animation-delay: 0.4s;">
+                    <div class="card-title">4. REPORTE COMPLETO DE ANÁLISIS DE MEMORIA</div>
+                    <div class="card-content">
+                        <iframe src="../pdf/AcuñaQuezadaAngelAaron_Act17.pdf" class="pdf-container" title="Actividad 17 PDF"></iframe>
+                    </div>
+                </div>
+
+            </div>
+            
+            <footer class="soc-footer fade-in" style="margin-top: 20px;">
+                <p> INFORMÁTICA CRIMINOLÓGICA (MEMORY FORENSICS) | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
