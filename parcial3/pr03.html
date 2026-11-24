@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR03 | CNO IV Portafolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .report-section { margin-bottom: 30px; }
+        .report-text { font-size: 1.05rem; line-height: 1.6; color: var(--text-light); opacity: 0.9; }
+        .report-text strong { color: var(--accent); }
+        .report-list { margin-left: 20px; margin-bottom: 15px; }
+        .report-list li { margin-bottom: 10px; font-size: 1.02rem; line-height: 1.5; }
+        code { background-color: #1a222c; color: #ffcc00; padding: 2px 6px; border-radius: 3px; font-family: monospace; word-break: break-all; }
+        .pdf-container {
+            width: 100%;
+            height: 700px;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            margin-top: 15px;
+            background-color: #1a222c;
+        }
+        .report-img {
+            width: 100%;
+            max-width: 900px;
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            margin: 12px 0 22px 0;
+            box-shadow: 0 0 15px rgba(0, 168, 89, 0.12);
+            display: block;
+        }
+        .img-caption {
+            font-size: 0.88rem;
+            color: #9aa7b8;
+            margin-top: -14px;
+            margin-bottom: 22px;
+            font-family: monospace;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            border: 1px solid rgba(0, 168, 89, 0.3);
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        .forensic-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .forensic-table th, .forensic-table td {
+            border-bottom: 1px solid rgba(0, 168, 89, 0.2);
+            padding: 11px 12px;
+            text-align: left;
+            font-size: 0.95rem;
+            vertical-align: top;
+        }
+        .forensic-table th {
+            background-color: rgba(0, 168, 89, 0.12);
+            color: var(--accent);
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .info-card {
+            background: rgba(0, 168, 89, 0.05);
+            border: 1px dashed rgba(0, 168, 89, 0.35);
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .warning-box {
+            background: rgba(255, 204, 0, 0.06);
+            border-left: 3px solid #ffcc00;
+            padding: 12px 16px;
+            margin-top: 12px;
+            border-radius: 4px;
+        }
+        .code-block {
+            background-color: #0b0f14;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid var(--accent);
+            font-family: monospace;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            line-height: 1.45;
+            font-size: 0.9rem;
+            margin: 12px 0;
+        }
+        .badge-ok { background: rgba(0, 168, 89, 0.2); color: var(--accent); padding: 2px 8px; border-radius: 3px; font-weight: bold; border: 1px solid var(--accent); font-size: 0.8rem; }
+        .badge-warn { background: rgba(255, 204, 0, 0.18); color: #ffcc00; padding: 2px 8px; border-radius: 3px; font-weight: bold; border: 1px solid #ffcc00; font-size: 0.8rem; }
+        .sub-title { color: var(--accent); margin-top: 22px; margin-bottom: 10px; font-size: 1.15rem; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-icon pulse"></span>
+                <h2>CNO IV PORTAFOLIO</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
+                <a href="../parcial1/index.html"><span class="nav-dot"></span>02. PARCIAL 1</a>
+                <a href="../parcial2/index.html"><span class="nav-dot"></span>03. PARCIAL 2</a>
+                <a href="index.html" class="active"><span class="nav-dot"></span>04. PARCIAL 3</a>
+                <a href="../halloffame/index.html" style="color: #ffcc00; margin-top: 15px; border-top: 1px solid rgba(255,204,0,0.3); padding-top: 15px;"><span class="nav-dot"></span>🏆 ROAD TO HALL OF FAME</a>
+            </nav>
+            <div class="system-status">
+                <p>STATUS: <span class="text-green blink">SECURE</span></p>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <a href="index.html" class="back-btn">&lt; VOLVER AL PARCIAL 3</a>
+                <div class="user-info"><span>OP: sys_d3im0s</span></div>
+            </header>
+
+            <div class="grid-container" style="display: block;">
+
+                <!-- Encabezado del Proyecto -->
+                <div class="card fade-in report-section" style="border-left: 3px solid var(--accent);">
+                    <div class="card-title" style="font-size: 1.5rem;">&gt; PR03: OPERACIÓN NARCOS - EXPEDIENTE KOWHAI</div>
+                    <div class="card-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div style="flex: 1; min-width: 280px;">
+                            <ul class="report-list" style="list-style-type: none; margin-left: 0;">
+                                <li><strong>Evidencia Analizada:</strong> Imagen forense <code>Narcos-1.001</code> (21 segmentos RAW, 62,914,560 sectores)</li>
+                                <li><strong>Herramientas:</strong> Autopsy 4.23.1, FTK Imager y RegRipper</li>
+                                <li><strong>Contexto del Caso:</strong> Tras interceptar a dos pasajeros procedentes de Australia en el aeropuerto de Wellington (Nueva Zelanda) con 1 kg de metanfetamina, las autoridades intervinieron un inmueble en Petone vinculado a Steve Kowhai y aseguraron el equipo de escritorio analizado.</li>
+                            </ul>
+                        </div>
+                        <a href="../pdf/AcuñaQuezadaAngelAaron-PR03.pdf" download="AcuñaQuezadaAngelAaron-PR03.pdf" class="back-btn" style="font-size: 0.9rem; border: 1px solid #ffcc00; padding: 10px 20px; background: rgba(255, 204, 0, 0.1); color: #ffcc00;">
+                            [ ↓ ] DESCARGAR EXPEDIENTE COMPLETO (PDF)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Verificación de Integridad -->
+                <div class="card fade-in report-section" style="animation-delay: 0.08s;">
+                    <div class="card-title">0. VERIFICACIÓN DE INTEGRIDAD DE LA EVIDENCIA (NARCOS-1)</div>
+                    <div class="card-content">
+                        <p class="report-text">Previo al análisis se validó la integridad criptográfica de la imagen <code>Narcos-1.001</code> a <code>Narcos-1.021</code> mediante FTK Imager, confirmando coincidencia exacta con el archivo de control original y ausencia de bloques dañados.</p>
+                        <div class="code-block">[Computed &amp; Verified Hashes - Narcos-1.001]
+Sector count : 62,914,560 | Bad blocks: None
+MD5 checksum : c63a3d19e9c9495b573f45be544e50f9  [MATCH / VERIFIED]
+SHA1 checksum: 4d8e5041f47e0b0fc0eacc85d300661946537418  [MATCH / VERIFIED]</div>
+                        <img src="capturas/Comprovacion%20%20Hashes.png" alt="Verificación de hashes MD5 y SHA1 de Narcos-1" class="report-img">
+                        <p class="img-caption">// Fig. 0 — Drive/Image Verify Results en FTK Imager contrastado con Narcos-1.001.txt</p>
+                    </div>
+                </div>
+
+                <!-- Parte I: Extracción e Identificación -->
+                <div class="card fade-in report-section" style="animation-delay: 0.15s;">
+                    <div class="card-title">1. PARTE I — EXTRACCIÓN E IDENTIFICACIÓN DE EVIDENCIA DIGITAL (PUNTOS 1 AL 15)</div>
+                    <div class="card-content">
+                        <p class="report-text">Resumen consolidado de los artefactos de sistema operativo, navegación, documentos, metadatos y herramientas localizadas en la partición principal <code>vol7</code> de <code>Narcos-1.001</code> (zona horaria de análisis configurada en <strong>NZDT / GMT+13:00</strong>).</p>
+
+                        <div class="table-wrapper">
+                            <table class="forensic-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Hallazgo / Artefacto</th>
+                                        <th>Valor Exacto / Hash / Marca de Tiempo</th>
+                                        <th>Ruta dentro de la Imagen</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>01</strong></td>
+                                        <td>Edición y versión de Windows (RegRipper <code>winver</code>)</td>
+                                        <td><strong>Windows 10 Pro, versión 1809</strong> (Build 17763.rs5_release.180914-1434). Instalación: <code>2019-01-28 19:15:39 UTC</code> (<code>2019-01-29 08:15:39 NZDT</code>). Propietario: <code>Steve</code>.</td>
+                                        <td><code>/vol7/Windows/System32/config/SOFTWARE</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>02</strong></td>
+                                        <td>Perfil de usuario principal</td>
+                                        <td>Carpeta: <strong>Steve</strong></td>
+                                        <td><code>C:\Users\Steve</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>03</strong></td>
+                                        <td>Clave UserAssist (RegRipper sobre <code>NTUSER.DAT</code>)</td>
+                                        <td>LastWrite: <code>2019-01-28 19:35:33Z</code>. Registra Discord, Explorer, Chrome, ScreenSketch y DumpIt.</td>
+                                        <td><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>04</strong></td>
+                                        <td>Navegadores con actividad</td>
+                                        <td><strong>Google Chrome</strong> y <strong>Microsoft Edge</strong></td>
+                                        <td><code>...\Chrome\User Data\Default\History</code><br><code>...\Microsoft\Windows\WebCache\WebCacheV01.dat</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>05</strong></td>
+                                        <td>Hash MD5 de Chrome <code>History</code></td>
+                                        <td><code>f3f979c6dee9fbb7cbdf5818aaa4b723</code></td>
+                                        <td><code>C:\Users\Steve\AppData\Local\Google\Chrome\User Data\Default\History</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>06–07</strong></td>
+                                        <td><code>airport crystals.jpg</code> (Ruta y creación)</td>
+                                        <td>Creación: <strong>2019-01-31 10:25:18 NZDT</strong><br>MD5: <code>f938f92d9dbaeda2e92246deeebe830a</code></td>
+                                        <td><code>C:\Users\Steve\Documents\Misc\airport crystals.jpg</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>08–09</strong></td>
+                                        <td><code>dropoff.jpg</code> (MD5 y modificación)</td>
+                                        <td>MD5: <code>7feb763bebe42c3a3464c9ee3bb1d3e8</code><br>Última modificación: <strong>2019-02-02 14:06:06 NZDT</strong></td>
+                                        <td><code>C:\Users\Steve\Documents\Misc\dropoff.jpg</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>10</strong></td>
+                                        <td>Reservaciones de vuelo</td>
+                                        <td><strong>flightbookings.PNG</strong><br>Creación: <code>2019-02-02 15:28:44 NZDT</code> | MD5: <code>d1b21a1cddcb3494d637f2424cc5f0f1</code></td>
+                                        <td><code>C:\Users\Steve\Documents\Misc\flightbookings.PNG</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>11</strong></td>
+                                        <td><code>Method run.jpg</code> (MD5)</td>
+                                        <td><code>69b225bc0ef5a0c003f1e2a6646aaf92</code><br>Creado: <code>2019-01-31 10:21:24 NZDT</code> | Modificado: <code>10:22:24 NZDT</code></td>
+                                        <td><code>C:\Users\Steve\Documents\Misc\Method run.jpg</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>12</strong></td>
+                                        <td><code>BNE.png</code> (MD5)</td>
+                                        <td><code>dffa98bdd7371d1806adb09db27ba283</code><br>Creado: <code>2019-02-01 13:13:19 NZDT</code></td>
+                                        <td><code>C:\Users\Steve\Downloads\Misc\BNE.png</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>13</strong></td>
+                                        <td>Instalador de esteganografía</td>
+                                        <td><strong>Image Steganography 1.5.2 Setup.exe</strong><br>MD5: <code>c9b7c382dea6d7f45ae1bf437860cb69</code></td>
+                                        <td><code>C:\Users\Steve\Downloads\Image Steganography 1.5.2 Setup.exe</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>14</strong></td>
+                                        <td>Instalador de cifrado</td>
+                                        <td><strong>TrueCrypt Setup 7.1a.exe</strong><br>MD5: <code>7a23ac83a0856c352025a6f7c9cc1526</code></td>
+                                        <td><code>C:\Users\Steve\Downloads\TrueCrypt Setup 7.1a.exe</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>15</strong></td>
+                                        <td>Caché de Discord y Windows Timeline</td>
+                                        <td>Caché Electron/Chromium (130 elementos) y SQLite <code>ActivitiesCache.db</code></td>
+                                        <td><code>C:\Users\Steve\AppData\Roaming\Discord\Cache</code><br><code>C:\Users\Steve\AppData\Local\ConnectedDevicesPlatform\2418c0082017486a\ActivitiesCache.db</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 class="sub-title">&gt;_ EVIDENCIAS VISUALES DESTACADAS (AUTOPSY Y REGRIPPER)</h4>
+                        <p class="report-text">Muestra de las extracciones clave del registro, navegación y archivos en <code>Documents\Misc</code> (el juego completo de capturas y salidas se encuentra documentado en el PDF anexo).</p>
+
+                        <img src="capturas/Pregunta%2001.png" alt="RegRipper winver Windows 10 Pro 1809" class="report-img">
+                        <p class="img-caption">// Pregunta 01 — Salida de RegRipper (plugin winver) sobre el hive SOFTWARE</p>
+
+                        <img src="capturas/pregunta%2002.png" alt="Perfil principal Steve en Autopsy" class="report-img">
+                        <p class="img-caption">// Pregunta 02 — Árbol de directorios en vol7 identificando C:\Users\Steve</p>
+
+                        <img src="capturas/03.png" alt="UserAssist en RegRipper" class="report-img">
+                        <p class="img-caption">// Pregunta 03 — Clave UserAssist extraída desde NTUSER.DAT con RegRipper</p>
+
+                        <img src="capturas/04.png" alt="Web History Chrome y Edge" class="report-img">
+                        <p class="img-caption">// Pregunta 04 — Artefacto Web History mostrando actividad de Google Chrome y Microsoft Edge</p>
+
+                        <img src="capturas/05.1.png" alt="Hash MD5 de Chrome History" class="report-img">
+                        <p class="img-caption">// Pregunta 05 — Metadatos y hash MD5 del archivo History de Google Chrome</p>
+
+                        <img src="capturas/06.png" alt="Búsqueda de airport crystals.jpg" class="report-img">
+                        <p class="img-caption">// Pregunta 06 — Localización de airport crystals.jpg y sus artefactos asociados (.lnk y Zone.Identifier)</p>
+
+                        <img src="capturas/07.png" alt="Metadatos de creación de airport crystals.jpg en NZDT" class="report-img">
+                        <p class="img-caption">// Pregunta 07 — Marcas de tiempo de airport crystals.jpg en zona horaria NZDT</p>
+
+                        <img src="capturas/08.png" alt="Hash MD5 y modificación de dropoff.jpg" class="report-img">
+                        <p class="img-caption">// Preguntas 08 y 09 — Hash MD5 y marcas de tiempo de dropoff.jpg en Autopsy</p>
+                    </div>
+                </div>
+
+                <!-- Parte II: Investigación, Interpretación y Análisis -->
+                <div class="card fade-in report-section" style="animation-delay: 0.22s;">
+                    <div class="card-title">2. PARTE II — INVESTIGACIÓN, INTERPRETACIÓN Y ANÁLISIS DEL CASO (PUNTOS 16 AL 20)</div>
+                    <div class="card-content">
+
+                        <!-- Punto 16 -->
+                        <h4 class="sub-title">16. Correlación Geográfica y Logística (BNE.png, dropoff.jpg y flightbookings.PNG)</h4>
+                        <p class="report-text"><strong>Lo observado:</strong> <code>BNE.png</code> (creado <code>2019-02-01 13:13:19 NZDT</code>, descargado de internet) muestra el Story Bridge en Brisbane, Australia (código IATA <code>BNE</code>). <code>dropoff.jpg</code> (creado <code>2019-02-02 14:06:05 NZDT</code>, con acceso directo <code>.lnk</code>) muestra un mapa de <strong>Eastbourne Library</strong> en Lower Hutt, Wellington. Una hora y 22 minutos después (<code>2019-02-02 15:28:44 NZDT</code>) se guarda <code>flightbookings.PNG</code> con una cotización para <strong>2 adultos (AU$1,327.82)</strong> entre Brisbane (BNE) y Wellington (WLG) del 16 al 23 de febrero de 2019 (Virgin Australia ida / Qantas regreso). Los tres comparten último acceso el <code>2019-02-02 15:31:06 NZDT</code>.</p>
+                        <div class="warning-box">
+                            <p class="report-text"><strong>Límite probatorio:</strong> <code>flightbookings.PNG</code> es una cotización en pantalla, no un boleto pagado ni emitido. No confirma compra, abordaje, identidad de los pasajeros ni el propósito real del punto en Eastbourne Library.</p>
+                        </div>
+
+                        <!-- Punto 17 -->
+                        <h4 class="sub-title">17. Contraste de Mapas (airport crystals.jpg y Method run.jpg) con Recent Documents</h4>
+                        <p class="report-text"><strong>Lo observado:</strong> En <code>Recent Documents</code> se registra la ejecución de <code>ms-screensketch</code> el <code>2019-01-31 10:20:52 NZDT</code>, seguida 32 segundos después por <code>Method run.lnk</code> (<code>10:21:24 NZDT</code>) y su edición a las <code>10:22:24 NZDT</code> (anotación manuscrita roja <em>"Home"</em> en Eastbourne con ruta hacia Wainuiomata, Naenae y Stokes Valley — 54 min / 43.3 km). Un segundo recorte a las <code>10:25:05 NZDT</code> precede por 13 segundos a <code>airport crystals.jpg</code> (<code>10:25:18 NZDT</code>, ruta Aeropuerto de Wellington a Eastbourne — 47 min / 31.6 km).</p>
+                        <div class="warning-box">
+                            <p class="report-text"><strong>Límite probatorio:</strong> Demuestra creación, anotación y apertura local en menos de 4.5 minutos, pero no acredita recorridos físicos reales, transporte de sustancias ni titularidad real del domicilio etiquetado como "Home".</p>
+                        </div>
+
+                        <!-- Punto 18 -->
+                        <h4 class="sub-title">18. Presencia y Actividad de Discord</h4>
+                        <p class="report-text"><strong>Evidencia verificada:</strong> Múltiples archivos Prefetch (<code>DISCORD.EXE-*.pf</code>) acreditan ejecuciones repetidas entre el <code>2019-01-30 10:02:45 NZDT</code> y el <code>2019-02-02 15:38:39 NZDT</code>; instalación local en <code>AppData\Local\Discord\app-0.0.304</code>; caché multimedia con 130 elementos y base <code>Local Storage\leveldb</code> (<code>000006.log</code> modificado el <code>2019-02-02 15:38:47 NZDT</code>, 8 segundos después de la última ejecución en Prefetch).</p>
+                        <div class="warning-box">
+                            <p class="report-text"><strong>Límite probatorio:</strong> Discord almacena el historial de mensajes en servidores en la nube y no en texto claro dentro de <code>leveldb</code>. Sin registros del servidor no puede concluirse qué se conversó, con qué interlocutores ni la autoría física frente al teclado.</p>
+                        </div>
+
+                        <!-- Punto 19 -->
+                        <h4 class="sub-title">19. Herramientas de Esteganografía y Cifrado (Diferenciación por Niveles)</h4>
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <span class="badge-ok">NIVEL 1: DESCARGA</span>
+                                <p class="report-text" style="margin-top: 8px; font-size: 0.93rem;">Instaladores en <code>Downloads</code>: <code>TrueCrypt Setup 7.1a.exe</code> (<code>2019-01-30 12:27:43 NZDT</code>) e <code>Image Steganography 1.5.2 Setup.exe</code> (<code>2019-02-01 13:16:32 NZDT</code>). Solo prueban presencia en disco.</p>
+                            </div>
+                            <div class="info-card">
+                                <span class="badge-ok">NIVEL 2: INSTALACIÓN</span>
+                                <p class="report-text" style="margin-top: 8px; font-size: 0.93rem;">Registro <code>SOFTWARE</code> documenta <strong>TrueCrypt v.7.1a</strong>; carpetas de datos en <code>AppData\Roaming\TrueCrypt</code>, <code>Image_Steganography</code> e <code>Image_Steganography_Setup</code>.</p>
+                            </div>
+                            <div class="info-card">
+                                <span class="badge-ok">NIVEL 3: EJECUCIÓN</span>
+                                <p class="report-text" style="margin-top: 8px; font-size: 0.93rem;">Prefetch confirma ejecución de <code>TRUECRYPT SETUP</code> (<code>12:28:17</code>), <code>TRUECRYPT.EXE</code> (<code>12:31:25</code>) y <code>TRUECRYPT FORMAT.EXE</code> (<code>12:31:29</code> del <code>2019-01-30 NZDT</code>); e <code>IMAGE STEGANOGRAPHY.EXE</code> (<code>2019-02-01 13:16:56 NZDT</code>).</p>
+                            </div>
+                            <div class="info-card" style="border-color: rgba(255, 204, 0, 0.5);">
+                                <span class="badge-warn">NIVEL 4: USO EFECTIVO (NO CONFIRMADO)</span>
+                                <p class="report-text" style="margin-top: 8px; font-size: 0.93rem;">Abrir el asistente no equivale a crear un contenedor. No se hallaron volúmenes cifrados ni imágenes con datos ocultos comprobables en el disco, sin descartar medios externos.</p>
+                            </div>
+                        </div>
+
+                        <!-- Punto 20 -->
+                        <h4 class="sub-title">20. Hipótesis Principal, Explicación Alternativa y Evidencias Adicionales</h4>
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <h5 style="color: var(--accent); margin-bottom: 8px;">&gt; Hipótesis Principal</h5>
+                                <p class="report-text" style="font-size: 0.95rem;">El equipo (<code>Narcos-1.001</code>, perfil <code>Steve</code>) habría operado como estación de planificación logística, comunicación y preparación vinculada al traslado o distribución de metanfetamina cristalina entre Brisbane (BNE) y Wellington / Lower Hutt (WLG) entre el 29 de enero y el 2 de febrero de 2019 (NZDT).</p>
+                            </div>
+                            <div class="info-card">
+                                <h5 style="color: #ffcc00; margin-bottom: 8px;">&gt; Explicación Alternativa</h5>
+                                <p class="report-text" style="font-size: 0.95rem;">La actividad podría corresponder a investigación documental, simulación o pruebas personales: descarga de notas de prensa sobre incautaciones y pandillas (Mongrel Mob), rutas hipotéticas en Maps, cotizaciones sin compra y exploración de software de privacidad sin ejecución ilícita real.</p>
+                            </div>
+                        </div>
+
+                        <p class="report-text" style="margin-top: 18px;"><strong>Cuatro hallazgos que sustentan el análisis:</strong></p>
+                        <ol class="report-list">
+                            <li><strong>Planificación geográfica y logística correlacionada:</strong> Mapas anotados vía ScreenSketch (<code>Method run.jpg</code>, <code>airport crystals.jpg</code>), más <code>BNE.png</code>, <code>dropoff.jpg</code> y <code>flightbookings.PNG</code>.</li>
+                            <li><strong>Material guardado y eliminado en <code>$Recycle.Bin</code>:</strong> Tres imágenes (<code>620x349.jpg</code>, <code>price-meth-bust-4.jpg</code> y <code>eight_col_patches_crp.jpg</code>) guardadas el <code>2019-01-31</code> y enviadas a Papelera el <code>2019-02-01 15:48:41 NZDT</code> (cristales azules, efectivo y parches de Mongrel Mob MC).</li>
+                            <li><strong>Uso activo de Discord en escritorio:</strong> Ejecuciones repetidas en Prefetch y escritura local en <code>leveldb</code> en paralelo a la creación de los mapas y cotizaciones.</li>
+                            <li><strong>Instalación y ejecución de herramientas de ocultamiento/cifrado:</strong> Ejecución verificada de <code>TrueCrypt</code> (incluido su asistente de formato) e <code>Image Steganography</code>, sin contenedores resultantes en el disco.</li>
+                        </ol>
+
+                        <p class="report-text" style="margin-top: 15px;"><strong>Dos evidencias adicionales necesarias para confirmar o descartar la hipótesis:</strong></p>
+                        <ul class="report-list">
+                            <li><strong>Registros del servidor o exportación de comunicaciones de Discord:</strong> Para verificar contenido de mensajes, adjuntos e identidad de interlocutores.</li>
+                            <li><strong>Registros externos de aerolíneas, transacciones financieras o dispositivos móviles:</strong> Para comprobar compra/abordaje de los vuelos del 16 al 23 de febrero de 2019 y desplazamientos físicos reales.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Referencias Obligatorias -->
+                <div class="card fade-in report-section" style="animation-delay: 0.28s; border-left: 3px solid #ffcc00;">
+                    <div class="card-title" style="color: #ffcc00;">3. REFERENCIAS BIBLIOGRÁFICAS (OBLIGATORIAS Y COMPLEMENTARIAS)</div>
+                    <div class="card-content">
+                        <p class="report-text" style="margin-bottom: 12px;"><strong>Referencia académica obligatoria (conjuntos de datos estandarizados):</strong><br>
+                        Garfinkel, S., Farrell, P., Roussev, V., &amp; Dinolt, G. (2009). <em>Bringing Science to Digital Forensics with Standardized Forensic Corpora</em>. Digital Forensic Research Workshop (DFRWS), Montreal, Canadá. <a href="https://simson.net/clips/academic/2009.DFRWS.Corpora.pdf" target="_blank" style="color: var(--accent);">https://simson.net/clips/academic/2009.DFRWS.Corpora.pdf</a></p>
+
+                        <p class="report-text" style="margin-bottom: 12px;"><strong>Escenario forense utilizado (citado por separado):</strong><br>
+                        Digital Corpora. (2019). <em>2019 Narcos Scenario (Narcos-1.001 Forensic Disk Image)</em> [Conjunto de datos estandarizado para informática forense]. Digital Corpora. <a href="https://digitalcorpora.org/" target="_blank" style="color: var(--accent);">https://digitalcorpora.org/</a></p>
+
+                        <p class="report-text" style="margin-bottom: 10px;"><strong>Referencias complementarias:</strong></p>
+                        <ul class="report-list">
+                            <li>Carrier, B. (2005). <em>File System Forensic Analysis</em>. Addison-Wesley Professional.</li>
+                            <li>Sleuth Kit &amp; Autopsy. (2024). <em>Autopsy Digital Forensics Platform (Versión 4.23.1) – User Documentation</em> [Software de análisis forense digital]. Basis Technology. <a href="https://www.autopsy.com/" target="_blank" style="color: var(--accent);">https://www.autopsy.com/</a></li>
+                            <li>IATA. (s. f.). <em>Airline and airport code search</em>. <a href="https://www.iata.org/en/publications/directories/code-search/" target="_blank" style="color: var(--accent);">https://www.iata.org/en/publications/directories/code-search/</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Visor PDF Completo -->
+                <div class="card fade-in report-section" style="animation-delay: 0.34s;">
+                    <div class="card-title">4. INFORME FORENSE COMPLETO (32 PÁGINAS - PDF)</div>
+                    <div class="card-content">
+                        <p class="report-text">Documento íntegro con todas las capturas de Autopsy, salidas de RegRipper, evidencia de papelera y análisis paso a paso.</p>
+                        <iframe src="../pdf/AcuñaQuezadaAngelAaron-PR03.pdf" class="pdf-container" title="PR03 Expediente Kowhai PDF"></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="soc-footer fade-in" style="margin-top: 20px;">
+                <p> PROYECTO PR03: OPERACIÓN NARCOS | © 2026 Angel Acuña | CNO IV</p>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
