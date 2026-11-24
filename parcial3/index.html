@@ -16,6 +16,13 @@
             box-shadow: 0 0 15px rgba(0, 168, 89, 0.15);
             transform: translateY(-5px);
         }
+        .pr-card {
+            border: 1px solid rgba(255, 204, 0, 0.45);
+        }
+        .pr-card:hover {
+            border-color: #ffcc00;
+            box-shadow: 0 0 18px rgba(255, 204, 0, 0.2);
+        }
         .status-badge {
             display: inline-block;
             padding: 3px 8px;
@@ -24,8 +31,8 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
-        .status-pending { background: rgba(255, 204, 0, 0.2); color: #ffcc00; border: 1px solid #ffcc00; }
         .status-active { background: rgba(0, 168, 89, 0.2); color: var(--accent); border: 1px solid var(--accent); }
+        .status-gold { background: rgba(255, 204, 0, 0.15); color: #ffcc00; border: 1px solid #ffcc00; }
     </style>
 </head>
 <body>
@@ -40,7 +47,6 @@
                 <a href="../index.html"><span class="nav-dot"></span>01. INICIO</a>
                 <a href="../parcial1/index.html"><span class="nav-dot"></span>02. PARCIAL 1</a>
                 <a href="../parcial2/index.html"><span class="nav-dot"></span>03. PARCIAL 2</a>
-                <!-- Parcial 3 Activo -->
                 <a href="index.html" class="active"><span class="nav-dot"></span>04. PARCIAL 3</a>
                 <a href="../halloffame/index.html" style="color: #ffcc00; margin-top: 15px; border-top: 1px solid rgba(255,204,0,0.3); padding-top: 15px;"><span class="nav-dot"></span>🏆 ROAD TO HALL OF FAME</a>
             </nav>
@@ -53,18 +59,18 @@
         <!-- Contenido Principal -->
         <main class="main-content">
             <header class="topbar">
-                <h1 id="typewriter-title">>_ PARCIAL 3: CIBERSEGURIDAD FORENSE</h1>
+                <h1 id="typewriter-title">&gt;_ PARCIAL 3: INFORMÁTICA CRIMINOLÓGICA</h1>
                 <div class="user-info"><span>OP: sys_d3im0s</span></div>
             </header>
 
             <div class="grid-container">
-                
-                <!-- Encabezado del Parcial (Ocupa todo el ancho) -->
+
+                <!-- Encabezado del Parcial -->
                 <div class="card fade-in" style="border-left: 3px solid var(--accent); grid-column: 1 / -1; margin-bottom: 20px;">
-                    <div class="card-title">> STATUS DEL SISTEMA: TERCER PARCIAL EN CURSO</div>
+                    <div class="card-title">&gt; STATUS DEL SISTEMA: TERCER PARCIAL COMPLETO</div>
                     <div class="card-content">
                         <p style="font-size: 1.1rem; color: var(--text-light); opacity: 0.9;">
-                            Bienvenido al área clasificada del Tercer Parcial. En este módulo se documentarán las prácticas forenses, análisis de evidencia y laboratorios asignados por el Mtro. Servando López Contreras.
+                            Módulo de Informática Criminológica y Análisis Forense Digital. Contiene la documentación técnica de las actividades de extracción de metadatos, adquisición bit a bit, análisis de RAM, investigación forense, respuesta en caliente y el proyecto final PR03.
                         </p>
                     </div>
                 </div>
@@ -74,25 +80,24 @@
                     <div class="card-title">ACTIVIDAD 15</div>
                     <div class="card-content">
                         <span class="status-badge status-active">COMPLETA</span>
-                        <h4 style="color: var(--text-light); margin-bottom: 10px;">La Fotografía como Testigo</h4>
+                        <h4 style="color: var(--text-light); margin-bottom: 10px;">La fotografía como testigo</h4>
                         <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; min-height: 45px;">
-                            Análisis y extracción de coordenadas con ExifTool en documentos de INTERPOL y sanitización de evidencia.
+                            Extracción de metadatos GPS para geolocalización con ExifTool y sanitización de evidencia.
                         </p>
-                        <!-- Enlace directo a la Actividad 15 -->
                         <a href="actividad15.html" class="back-btn" style="font-size: 0.8rem; text-align: center; display: block; padding: 8px; border-color: var(--accent); color: var(--accent);">
-                            [ VER REPORTE ]
+                            [ VER REPORTE FORENSE ]
                         </a>
                     </div>
                 </div>
 
-               <!-- Tarjeta Actividad 16 -->
-                <div class="card activity-card fade-in span-1" style="animation-delay: 0.2s;">
+                <!-- Tarjeta Actividad 16 -->
+                <div class="card activity-card fade-in span-1" style="animation-delay: 0.15s;">
                     <div class="card-title">ACTIVIDAD 16</div>
                     <div class="card-content">
                         <span class="status-badge status-active">COMPLETA</span>
-                        <h4 style="color: var(--text-light); margin-bottom: 10px;">Adquisición con FTK Imager</h4>
+                        <h4 style="color: var(--text-light); margin-bottom: 10px;">La verdad en los bits</h4>
                         <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; min-height: 45px;">
-                            Creación de imagen forense (Raw/dd) bit a bit de una memoria USB, validada con hashes MD5 y SHA-1.
+                            Adquisición forense bit a bit (Raw/dd) con FTK Imager y validación con hashes MD5 y SHA-1.
                         </p>
                         <a href="actividad16.html" class="back-btn" style="font-size: 0.8rem; text-align: center; display: block; padding: 8px; border-color: var(--accent); color: var(--accent);">
                             [ VER REPORTE DE ADQUISICIÓN ]
@@ -101,13 +106,13 @@
                 </div>
 
                 <!-- Tarjeta Actividad 17 -->
-                <div class="card activity-card fade-in span-1" style="animation-delay: 0.3s;">
+                <div class="card activity-card fade-in span-1" style="animation-delay: 0.2s;">
                     <div class="card-title">ACTIVIDAD 17</div>
                     <div class="card-content">
                         <span class="status-badge status-active">COMPLETA</span>
-                        <h4 style="color: var(--text-light); margin-bottom: 10px;">La Memoria del Crimen</h4>
+                        <h4 style="color: var(--text-light); margin-bottom: 10px;">La memoria del crimen</h4>
                         <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; min-height: 45px;">
-                            Análisis forense de un volcado RAM con Volatility. Extracción de contraseñas, C2 y billetera BTC.
+                            Extracción de evidencia de un volcado RAM con Volatility: credenciales, C2 y billetera BTC.
                         </p>
                         <a href="actividad17.html" class="back-btn" style="font-size: 0.8rem; text-align: center; display: block; padding: 8px; border-color: var(--accent); color: var(--accent);">
                             [ VER REPORTE DE VOLATILITY ]
@@ -116,13 +121,13 @@
                 </div>
 
                 <!-- Tarjeta Actividad 18 -->
-                <div class="card activity-card fade-in span-1" style="animation-delay: 0.4s;">
+                <div class="card activity-card fade-in span-1" style="animation-delay: 0.25s;">
                     <div class="card-title">ACTIVIDAD 18</div>
                     <div class="card-content">
                         <span class="status-badge status-active">COMPLETA</span>
-                        <h4 style="color: var(--text-light); margin-bottom: 10px;">La Huella de un Cibercriminal</h4>
+                        <h4 style="color: var(--text-light); margin-bottom: 10px;">La investigación forense</h4>
                         <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; min-height: 45px;">
-                            Análisis forense estático con Autopsy de una imagen de disco (Caso Mr. Evil / Hacking Case).
+                            La huella digital de un cibercriminal: análisis en Autopsy del caso Greg Schardt (Mr. Evil).
                         </p>
                         <a href="actividad18.html" class="back-btn" style="font-size: 0.8rem; text-align: center; display: block; padding: 8px; border-color: var(--accent); color: var(--accent);">
                             [ VER ANÁLISIS EN AUTOPSY ]
@@ -131,21 +136,37 @@
                 </div>
 
                 <!-- Tarjeta Actividad 19 -->
-                <div class="card activity-card fade-in span-1" style="animation-delay: 0.5s;">
+                <div class="card activity-card fade-in span-1" style="animation-delay: 0.3s;">
                     <div class="card-title">ACTIVIDAD 19</div>
                     <div class="card-content">
                         <span class="status-badge status-active">COMPLETA</span>
-                        <h4 style="color: var(--text-light); margin-bottom: 10px;">Adquisición Forense en Caliente</h4>
+                        <h4 style="color: var(--text-light); margin-bottom: 10px;">Los primeros minutos cuentan</h4>
                         <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; min-height: 45px;">
-                            Extracción de evidencia volátil (Live Forensics) en Windows utilizando comandos nativos en PowerShell.
+                            Adquisición forense en escenas del crimen digital (Live Response) mediante PowerShell.
                         </p>
                         <a href="actividad19.html" class="back-btn" style="font-size: 0.8rem; text-align: center; display: block; padding: 8px; border-color: var(--accent); color: var(--accent);">
                             [ VER LIVE RESPONSE ]
                         </a>
                     </div>
                 </div>
+
+                <!-- Tarjeta Proyecto PR03 -->
+                <div class="card activity-card pr-card fade-in span-1" style="animation-delay: 0.35s;">
+                    <div class="card-title" style="color: #ffcc00;">PROYECTO PR03</div>
+                    <div class="card-content">
+                        <span class="status-badge status-gold">PROYECTO FINAL</span>
+                        <h4 style="color: var(--text-light); margin-bottom: 10px;">Operación narcos: expediente Kowhai</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; min-height: 45px;">
+                            Investigación forense integral sobre la imagen Narcos-1 (Digital Corpora) con Autopsy, FTK Imager y RegRipper.
+                        </p>
+                        <a href="pr03.html" class="back-btn" style="font-size: 0.8rem; text-align: center; display: block; padding: 8px; border-color: #ffcc00; color: #ffcc00; background: rgba(255, 204, 0, 0.08);">
+                            [ ABRIR EXPEDIENTE PR03 ]
+                        </a>
+                    </div>
+                </div>
+
             </div>
-            
+
             <footer class="soc-footer fade-in" style="margin-top: 20px;">
                 <p> PARCIAL 3 | © 2026 Angel Acuña | CNO IV</p>
             </footer>
